@@ -14,7 +14,7 @@ function ProjectComponent() {
     }
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col h-full px-4 lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col h-auto px-4 lg:px-8 gap-6 " >
             <div className=' bg-white w-full rounded-[10px] items-center lg:py-9 lg:px-9 px-0 py-6 gap4 lg:gap-12 flex lg:flex-row flex-col ' >
 
                 <div className=' w-fit ' >
@@ -92,7 +92,7 @@ function ProjectComponent() {
                 </div>
                 <div className=' w-full lg:gap-0 gap-4 ' >
                     {Header(true)}
-                    <img alt='projecttwo' className=" w-full h-full relative lg:mt-0 mt-4 rounded-[10px]" src="https://via.placeholder.com/600x584" />
+                    <img alt='projecttwo' className=" w-full h-[356px] lg:w-full lg:h-full relative lg:mt-0 mt-4 rounded-[10px]" src="https://via.placeholder.com/500x500" />
                 </div>
             </div>
             <div className=' bg-slate-400 h-[356px] lg:h-[569px] w-full rounded-[10px] items-center p-9 gap-6 flex ' >
