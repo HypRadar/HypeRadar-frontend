@@ -1,5 +1,4 @@
-import React from 'react'
-import BuyRep from './buy_rep_btn'
+
 import BuyRepBtn from './buy_rep_btn'
 import SellRepBtn from './sell_rep_btn '
 import { useNavigate } from 'react-router-dom'

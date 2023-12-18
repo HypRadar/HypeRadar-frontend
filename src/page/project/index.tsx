@@ -1,8 +1,6 @@
-import React from 'react'
+// import React from 'react'
 import { Outlet } from 'react-router-dom'
-import DashboardLayout from '../../components/shared/dashboard_layout'
-import ProfileComponent from '../../components/holderinfo_component'
-import TabController from '../../components/holderinfo_component/tab_controller'
+import DashboardLayout from '../../components/shared/dashboard_layout' 
 
 interface Props { }
 

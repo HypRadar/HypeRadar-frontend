@@ -1,18 +1,15 @@
-import { TableContainer, Table, TableCaption, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { TableContainer, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react'
+// import React from 'react'
+import { useNavigate } from 'react-router-dom' 
 
-interface Props { }
-
-function HolderComponent(props: Props) {
-    const { } = props
+function HolderComponent() { 
 
     const navigate = useNavigate()
 
     return (
         <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-6 " >
             <div className=' bg-white w-[250px] h-[250px] lg:w-[420px] mx-auto lg:h-[420px] rounded-full py-6 lg:py-12 gap-2 flex flex-col items-center ' >
-                <img className=" w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] rounded-full shadow" src="https://via.placeholder.com/188x188" />
+                <img alt='holder' className=" w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] rounded-full shadow" src="https://via.placeholder.com/188x188" />
                 <p className="text-slate-900 text-3xl font-bold font-['Inter'] leading-[56px]">Polygon</p>
                 <div className="text-zinc-500 text-lg font-normal font-['Inter']">0xwed...b3n2</div>
                 <div className="p-2 bg-green-200 rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">

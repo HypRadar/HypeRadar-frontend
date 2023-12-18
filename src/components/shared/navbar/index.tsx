@@ -1,11 +1,9 @@
 import { InputGroup, InputLeftElement, Input, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom' 
 
-interface Props { }
+function Navbar() { 
 
-function Navbar(props: Props) {
-    const { } = props
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const navigate = useNavigate()

@@ -1,11 +1,9 @@
 import { Input, Select, Textarea, Button } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+ 
 
-interface Props { }
-
-function ProjectCreation(props: Props) {
-    const { } = props
+function ProjectCreation() { 
 
     const navigate = useNavigate()
 
