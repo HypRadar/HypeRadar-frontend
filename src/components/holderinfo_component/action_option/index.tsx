@@ -36,7 +36,7 @@ function ActionOption(props: Props) {
 
     return (
         <div className=' relative z-50 ml-3 ' >
-            <Select onChange={(e)=> onChangeHandler(e.target.value)} placeholder='Action' bgColor={"#5404FF"} color={"white"} height={["45px"]} icon={<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Select onChange={(e)=> onChangeHandler(e.target.value)} width={"fit-content"} placeholder='Action' bgColor={"#5404FF"} color={"white"} height={["45px"]} icon={<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Drop down icon">
                     <path id="Vector" d="M4 8L11 15L18 8H4Z" fill="#EEE5FF" />
                 </g>

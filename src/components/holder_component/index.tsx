@@ -47,63 +47,63 @@ function HolderComponent() {
                         <Tbody>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
                             </Tr>
                             <Tr role='button' onClick={() => navigate("/holderinfo")} >
                                 <Td color={"#5404FF"} > 
-                                    <CopyComponent item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
+                                    <CopyComponent hide={true} item='0xkdnsiewun3290238842bhtg8893' fontsize='text-base ' color='text-[#5404FF]' /> 
                                 </Td>
                                 <Td color={"#4D4D4D"} >10</Td>
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >$442.34K</Td>
