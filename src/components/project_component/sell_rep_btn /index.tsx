@@ -16,8 +16,8 @@ function SellRepBtn() {
 
     return (
         <> 
-            <Button onClick={() => setOpen(true)} width={["full", "auto"]} px={["0px", "8"]} height={["40px", "50px"]} rounded={"10px"} bgColor={"#EEE5FF"} borderColor={"#5404FF"} fontWeight={"600"} color={"#5404FF"} fontSize={["sm", "lg"]} borderWidth={"1.5px"} >
-                Sell repT
+            <Button onClick={() => setOpen(true)} width={["full", "auto"]} px={["0px", "8"]} height={["40px", "50px"]} rounded={"10px"} bgColor={"#EEE5FF"} borderColor={"#5404FF"} fontWeight={"600"} color={"#5404FF"} fontSize={["sm", "lg"]} borderWidth={"2px"} >
+                Sell RepT
             </Button>
             <ModalLayout open={open} close={setOpen} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Sell Bored Ape Yatch Club RepT'} >
                 {!tab ? 

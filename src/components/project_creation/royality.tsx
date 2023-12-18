@@ -23,8 +23,7 @@ function Royality() {
                 Create Project
             </Button>
             <div className="w-fit mx-auto h-[22px] justify-center items-start gap-4 inline-flex">
-                <div className="text-slate-900 text-base font-normal  border-slate-900 border-r pr-4 ">Project creation fee</div>
-                {/* <div className="w-[22px] h-[0px] origin-top-left rotate-90 border-2 border-slate-900"></div>  */}
+                <div className="text-slate-900 text-base font-normal  border-slate-900 border-r pr-4 ">Project creation fee</div> 
                 <div className=" text-slate-900 text-base font-normal ">0.45 BNB</div>
             </div>
         </div>

@@ -36,7 +36,7 @@ function BuyRepBtn(props: Props) {
                 </Button>
             )}
             {(!product && !action) && ( 
-                <Button onClick={(e) => openModal(e)} width={["full", "auto"]} px={["0px", "8"]} height={["40px", "50px"]} rounded={"10px"} bgColor={"#E5FFE8"} borderColor={"#00990F"} fontWeight={"600"} color={"#00990F"} fontSize={["xs", "medium"]} borderWidth={"1.5px"} >
+                <Button onClick={(e) => openModal(e)} width={["full", "auto"]} px={["0px", "8"]} height={["40px", "50px"]} rounded={"10px"} bgColor={"#E5FFE8"} borderColor={"#00990F"} fontWeight={"600"} color={"#00990F"} fontSize={["xs", "medium"]} borderWidth={"2px"} >
                     Buy RepT
                 </Button>
             )}
