@@ -1,9 +1,6 @@
-// import React from 'react'
+// import React from 'react' 
 
-interface Props { }
-
-function HolderInfoComponent(props: Props) {
-    const { } = props
+function HolderInfoComponent() { 
 
     return (
         <div className=' w-full flex justify-center flex-col ' >

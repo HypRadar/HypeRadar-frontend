@@ -1,12 +1,9 @@
 
 import BuyRepBtn from './buy_rep_btn'
 import SellRepBtn from './sell_rep_btn '
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom' 
 
-interface Props { }
-
-function ProjectComponent(props: Props) {
-    const { } = props
+function ProjectComponent() {
 
     const navigate = useNavigate()
 
@@ -21,7 +18,7 @@ function ProjectComponent(props: Props) {
             <div className=' bg-white w-full rounded-[10px] items-center lg:py-9 lg:px-9 px-0 py-6 gap-6 flex lg:flex-row flex-col ' >
                 <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative flex-col justify-start items-start inline-flex">
                     {/* <div className="w-[350px] h-[350px] rounded-full border-4 border-violet-600"></div> */}
-                    <img className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative rounded-[500px]" src="https://via.placeholder.com/300x300" />
+                    <img alt='project' className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative rounded-[500px]" src="https://via.placeholder.com/300x300" />
                 </div>
                 <div className=' flex flex-col gap-2 lg:w-auto w-full lg:items-start items-center px-6 lg:px-0 ' >
                     <p className="text-slate-900 text-3xl font-bold font-['Inter'] leading-[56px]">Polygon</p>
@@ -83,7 +80,7 @@ function ProjectComponent(props: Props) {
                 </div>
                 <div className=' w-full lg:gap-0 gap-4 ' >
                     {Header(true)}
-                    <img className=" w-full h-full relative rounded-[10px]" src="https://via.placeholder.com/600x584" />
+                    <img alt='projecttwo' className=" w-full h-full relative rounded-[10px]" src="https://via.placeholder.com/600x584" />
                 </div>
             </div>
             <div className=' bg-slate-400 h-[356px] lg:h-[569px] w-full rounded-[10px] items-center p-9 gap-6 flex ' >

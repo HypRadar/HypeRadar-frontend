@@ -1,13 +1,9 @@
 // import React from 'react'
-
-import { Button } from "@chakra-ui/react"
+ 
 import BuyRepBtn from "../project_component/buy_rep_btn"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom" 
 
-interface Props { }
-
-function ProductCard(props: Props) {
-    const { } = props
+function ProductCard() { 
 
     const navigate = useNavigate()
 
@@ -17,7 +13,7 @@ function ProductCard(props: Props) {
                 <div className=" w-fit " >
                     <div className="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] relative">
                         <div className=" w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] left-0 top-0 absolute bg-gray-100 rounded-full"></div>
-                        <img className=" w-[60px] h-[60px] lg:w-[100px] lg:h-[100px] left-[10px] top-[10px] absolute rounded-full shadow" src="https://via.placeholder.com/100x100" />
+                        <img alt="product" className=" w-[60px] h-[60px] lg:w-[100px] lg:h-[100px] left-[10px] top-[10px] absolute rounded-full shadow" src="https://via.placeholder.com/100x100" />
                     </div>
                 </div>
                 <div>

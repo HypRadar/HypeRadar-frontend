@@ -1,14 +1,10 @@
 import { Button } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import ModalLayout from '../../shared/modal_layout'
-import Buyrep from '../modal_component/buyrep'
+import { useState } from 'react'
+import ModalLayout from '../../shared/modal_layout' 
 import Successpage from '../modal_component/successpage'
-import Sellrep from '../modal_component/sellrep'
+import Sellrep from '../modal_component/sellrep' 
 
-interface Props { }
-
-function SellRepBtn(props: Props) {
-    const { } = props
+function SellRepBtn() { 
 
     const [open, setOpen] = useState(false)
     const [tab, setTab] = useState(false)

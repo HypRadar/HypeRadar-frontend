@@ -1,12 +1,8 @@
-import { Button, Input } from '@chakra-ui/react'
-import React from 'react'
+import { Button, Input } from '@chakra-ui/react' 
 import { useNavigate } from 'react-router-dom'
-
-interface Props { }
-
-function Royality(props: Props) {
-    const { } = props
-
+ 
+function Royality() { 
+    
     const navigate = useNavigate()
 
     return (
