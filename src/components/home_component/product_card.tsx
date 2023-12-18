@@ -18,25 +18,25 @@ function ProductCard() {
                 </div>
                 <div>
                     <div className="justify-start items-center gap-2 inline-flex">
-                        <p className="text-slate-900 text-[34px] font-bold font-['Inter'] leading-10">Bitcoin</p>
+                        <p className="text-slate-900 text-[34px] font-bold  leading-10">Bitcoin</p>
                         <div className="w-[25px] h-[25px] relative"></div>
                     </div>
-                    <div className="text-green-700 text-lg font-bold font-['Inter']">Price: $5,868</div>
+                    <div className="text-[#00990F] text-lg font-bold ">Price: $5,868</div>
                 </div>
             </div>
             <div className=" w-full flex gap-2 lg:gap-8 mt-6 " >
 
                 <div className="">
-                    <p className="text-slate-900 lg:text-2xl font-bold font-['Inter'] leading-loose">$121,345</p>
-                    <p className="text-zinc-500 lg:text-lg text-xs font-normal font-['Inter']">mkt cap</p>
+                    <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$121,345</p>
+                    <p className="text-zinc-500 lg:text-lg text-xs font-normal ">mkt cap</p>
                 </div>
                 <div className="">
-                    <p className="text-slate-900 lg:text-2xl font-bold font-['Inter'] leading-loose">$53,235</p>
-                    <p className="text-zinc-500 lg:text-lg text-xs font-normal font-['Inter']">usd locked</p>
+                    <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$53,235</p>
+                    <p className="text-zinc-500 lg:text-lg text-xs font-normal ">usd locked</p>
                 </div>
                 <div className="">
-                    <p className="text-slate-900 lg:text-2xl font-bold font-['Inter'] leading-loose">10%</p>
-                    <p className="text-zinc-500 lg:text-lg text-xs font-normal font-['Inter']">CR</p>
+                    <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">10%</p>
+                    <p className="text-zinc-500 lg:text-lg text-xs font-normal ">CR</p>
                 </div>
                 <BuyRepBtn product={true} />
             </div> 
