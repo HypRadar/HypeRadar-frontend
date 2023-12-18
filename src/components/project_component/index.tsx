@@ -14,7 +14,7 @@ function ProjectComponent() {
     }
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col h-full px-4 lg:px-8 gap-6 " >
             <div className=' bg-white w-full rounded-[10px] items-center lg:py-9 lg:px-9 px-0 py-6 gap-12 flex lg:flex-row flex-col ' >
 
                 <div className=' w-fit ' >

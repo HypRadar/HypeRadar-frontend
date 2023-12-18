@@ -9,7 +9,7 @@ function ProjectCreation() {
 
     return (
         <div className=" lg:max-w-7xl w-full flex flex-col px-2 lg:px-8 gap-6 " >
-            <div className=' bg-white w-full rounded-[10px] py-9 px-4 lg:py-9 lg:px-9 gap-5 flex lg:flex-row flex-col ' >
+            <div className=' bg-white w-full rounded-[10px] py-9 px-4 lg:py-[56px] lg:px-[80px] gap-5 flex lg:flex-row flex-col ' >
                 <div className=' w-fit ' >
                     <div role='button' className=" w-[120px] h-[120px] lg:w-[300px] lg:h-[300px] bg-slate-200 rounded-[500px] justify-center items-center flex">
                         <svg className=' w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] ' viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@ function ProjectCreation() {
                 </div>
             </div>
             <div className=' bg-white w-full rounded-[10px] lg:px-9 py-9 px-4 gap-5 flex lg:flex-row flex-col-reverse ' >
-                <div className=' w-full ' >
+                <div className=' w-full flex flex-col gap-2 ' >
                     <p className=' text-[#4D4D4D] ' >Enter bio</p>
                     <Textarea height={["250px", "500px"]} borderColor={"#EBEDF2"} />
                 </div>
@@ -81,7 +81,7 @@ function ProjectCreation() {
                     </svg>
                 </div>
             </div>
-            <Button py={3} onClick={() => navigate("/create/royality")} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} height={["38px", "54px"]} >
+            <Button py={3} onClick={() => navigate("/create/royality")} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} paddingY={"3"} >
                 Continue
             </Button>
             <div className=' py-4 ' />
