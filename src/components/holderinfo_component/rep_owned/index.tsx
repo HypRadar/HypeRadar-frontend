@@ -1,5 +1,6 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Button } from '@chakra-ui/react'
 import React from 'react'
+import ActionOption from '../action_option'
 
 interface Props {
     profile?: boolean
@@ -33,17 +34,10 @@ function RepOwned(props: Props) {
                                 </div>
                             </Td>
                             <Td color={"#4D4D4D"} >10</Td>
-                            <Td fontWeight={"bold"} display={"flex"} justifyContent={"end"} alignItems={"center"} color={"#00990F"} >
+                            <Td fontWeight={"bold"} position={"relative"} display={"flex"} justifyContent={"end"} alignItems={"center"} color={"#00990F"} >
                                 <p>$442.34K</p>
                                 {profile && ( 
-                                        <Button display={["flex"]} bgColor={"#5404FF"} ml={"6"} _hover={{ backgroundColor: "#5404FF" }} height={["38px", "54px"]} rightIcon={
-                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="Drop down icon">
-                                                    <path id="Vector" d="M4 8L11 15L18 8H4Z" fill="#EEE5FF" />
-                                                </g>
-                                            </svg>} rounded={"8px"} textColor={"white"} >
-                                            Actions
-                                        </Button> 
+                                    <ActionOption />
                                 )}
                             </Td>
                         </Tr>
