@@ -16,7 +16,7 @@ function Royality() {
                 </div>
                 <div className=' w-full flex flex-col gap-2  ' >
                     <p className=' text-[#4D4D4D] ' ><span className=' text-[#D20000] ' >*</span> Project name</p>
-                    <Input height={"54px"} bgColor={"#EBEDF2"} />
+                    <Input placeholder='10%' height={"54px"} bgColor={"#EBEDF2"} />
                 </div>
             </div>
             <Button onClick={()=> navigate("/")} mt={"4"} rounded={"30px"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} py={"4"} >
