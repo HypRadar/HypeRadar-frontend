@@ -32,12 +32,12 @@ function BuyRepBtn(props: Props) {
         <>
             {product && (
                 <Button onClick={(e) => openModal(e)} bgColor={"#5404FF"} ml={"auto"} _hover={{ backgroundColor: "#5404FF" }} height={["33px", "54px"]} fontSize={["sm", "lg"]} px={["4", "8"]} rounded={"30px"} textColor={"white"} >
-                    Buy repT
+                    Buy RepT
                 </Button>
             )}
             {(!product && !action) && ( 
                 <Button onClick={(e) => openModal(e)} width={["full", "auto"]} px={["0px", "8"]} height={["40px", "50px"]} rounded={"10px"} bgColor={"#E5FFE8"} borderColor={"#00990F"} fontWeight={"600"} color={"#00990F"} fontSize={["xs", "medium"]} borderWidth={"1.5px"} >
-                    Buy repT
+                    Buy RepT
                 </Button>
             )}
             <ModalLayout open={open} close={setOpen} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Buy Bitcoin’s RepT'} >
