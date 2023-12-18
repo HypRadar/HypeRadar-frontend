@@ -32,7 +32,7 @@ function BuyRepBtn(props: Props) {
         <>
             {product && (
                 <Button onClick={(e) => openModal(e)} bgColor={"#5404FF"} ml={"auto"} _hover={{ backgroundColor: "#5404FF" }} height={["33px", "54px"]} fontSize={["sm", "lg"]} px={["4", "8"]} rounded={"30px"} textColor={"white"} >
-                    Buy rep
+                    Buy repT
                 </Button>
             )}
             {(!product && !action) && ( 
