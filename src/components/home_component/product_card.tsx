@@ -24,13 +24,13 @@ function ProductCard() {
                     <div className="text-[#00990F] text-lg font-bold ">Price: $5,868</div>
                 </div>
             </div>
-            <div className=" w-full flex gap-2 lg:gap-8 mt-6 " >
+            <div className=" w-full flex gap-1 lg:gap-8 items-center mt-4 lg:mt-6 " >
 
-                <div className="">
+                <div className=" border-r pr-1 lg:pr-8 ">
                     <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$121,345</p>
                     <p className="text-zinc-500 lg:text-lg text-xs font-normal ">mkt cap</p>
                 </div>
-                <div className="">
+                <div className="border-r pr-1 lg:pr-8 ">
                     <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$53,235</p>
                     <p className="text-zinc-500 lg:text-lg text-xs font-normal ">usd locked</p>
                 </div>
