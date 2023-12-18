@@ -19,7 +19,7 @@ function Home(props: Props) {
         <DashboardLayout>
             <div className="flex-1 flex w-full justify-center overflow-auto">
                 <div className=" lg:max-w-7xl w-full flex px-4 lg:px-8 gap-6 " >
-                    <div className={` ${!gainer ? " flex " : "lg:flex hidden"} w-full  pb-6  flex-col gap-4  overflow-y-auto `}>
+                    <div className={` ${!gainer ? " flex " : "lg:flex hidden"} flex-1  pb-6  flex-col gap-4  overflow-y-auto `}>
                         <FilterBar />
                         <ProductCard />
                         <ProductCard />
@@ -27,7 +27,7 @@ function Home(props: Props) {
                         <ProductCard />
                         <ProductCard />
                     </div>
-                    <div className={` ${gainer ? " flex " : "lg:flex hidden"} lg:w-fit w-full `} >
+                    <div className={` ${gainer ? " flex " : "lg:flex hidden"} lg:w-fit w-full  overflow-y-auto `} >
                         <SideBar />
                     </div>
                 </div>
