@@ -10,8 +10,8 @@ function DashboardLayout(props: Props) {
     const { children, screen } = props
 
     return ( 
-        <div className={`flex flex-col w-full relative ${screen ? " h-screen  " : "h-screen overflow-hidden"} bg-slate-200`} >
-            <div className=" w-full sticky top-0 z-10 bg-slate-200 " >
+        <div className={`flex flex-col w-full relative ${screen ? " h-screen  " : "h-screen overflow-hidden"} bg-[#EBEDF2]`} >
+            <div className=" w-full sticky top-0 z-10 mb-[64px] bg-[#EBEDF2] " >
                 <Navbar />
             </div>
             {children}
