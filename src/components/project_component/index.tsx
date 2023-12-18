@@ -55,15 +55,15 @@ function ProjectComponent() {
                     <div className=" w-full lg:my-8 flex lg:justify-start justify-between  lg:gap-8 " >
                         <div className=" border-r pr-8 ">
                             <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$121,345</p>
-                            <p className="text-zinc-500 lg:text-base text-xs font-normal ">mkt cap</p>
+                            <p className="text-zinc-500 lg:text-lg text-xs font-normal ">mkt cap</p>
                         </div>
                         <div className="border-r pr-8 ">
                             <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$53,235</p>
-                            <p className="text-zinc-500 lg:text-base text-xs font-normal ">usd locked</p>
+                            <p className="text-zinc-500 lg:text-lg text-xs font-normal ">usd locked</p>
                         </div>
                         <div className="">
                             <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">10%</p>
-                            <p className="text-zinc-500 lg:text-base text-xs font-normal ">PR</p>
+                            <p className="text-zinc-500 lg:text-lg text-xs font-normal ">PR</p>
                         </div>
                     </div>
                     <div className="w-full h-[40px] lg:h-[50px] lg:justify-start justify-between gap-2 lg:gap-6 flex">
