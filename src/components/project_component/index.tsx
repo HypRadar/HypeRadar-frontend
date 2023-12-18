@@ -1,4 +1,5 @@
 
+import CopyComponent from '../shared/copy_component'
 import BuyRepBtn from './buy_rep_btn'
 import SellRepBtn from './sell_rep_btn '
 import { useNavigate } from 'react-router-dom'
@@ -25,7 +26,7 @@ function ProjectComponent() {
                 </div>
                 <div className=' flex flex-col lg:gap-0 gap-4 lg:w-auto w-full lg:items-start items-center px-6 lg:px-0 ' >
                     <p className="text-slate-900 text-[34px] lg:text-[48px] font-bold  leading-[56px]">Polygon</p>
-                    <div className="text-zinc-500 text-sm lg:text-lg lg:mt-0 -mt-3 font-normal ">0xwed...b3n2</div>
+                    <CopyComponent item='Oxsj45b43jh4h232bddhy33ddd' fontsize='text-sm lg:text-lg lg:mt-0 ' color='text-zinc-500' /> 
                     <div className="w-full justify-start lg:mt-6 lg:items-start items-center gap-4 flex-col flex lg:flex-row">
 
                         <div className=" p-2 lg:p-4 lg:w-fit bg-green-200 rounded-[5px] lg:flow-row flex-col justify-center items-end gap-1 inline-flex">
