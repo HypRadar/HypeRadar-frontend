@@ -13,12 +13,12 @@ function Navbar() {
         onClose()
     }
 
-    const [profile, setProfile] = useState(true)
+    const [profile, setProfile] = useState(false)
 
     return (
         <div className=' w-full flex justify-center h-24 items-center ' >
-            <div className=" lg:max-w-[1460px] px-6 lg:px-8 w-full flex items-center justify-between lg:justify-start flex-1 h-[54px]">
-                <div onClick={() => navigate("/")} className=' w-fit ' >
+            <div className=" lg:max-w-[1460px] relative px-6 lg:px-8 w-full flex items-center justify-between lg:justify-start flex-1 h-[54px]">
+                <div onClick={() => navigate("/")} className=' w-fit absolute left-6 flex items-center  ' >
                     <svg className=' w-[33px] h-[33px] lg:w-[54px] lg:h-[54px] rounded-full bg-blue-500 ' viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="54" height="54" rx="27" fill="#5404FF" />
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9333 25.7773C20.0082 25.9574 20.1558 26.0963 20.3375 26.158L27.7464 28.6721C27.8392 28.7037 27.9362 28.7134 28.0306 28.7022C28.1203 28.6916 28.2078 28.6619 28.2869 28.614L34.7184 24.7183C34.8905 24.6141 35.0051 24.4345 35.0295 24.231C35.054 24.0275 34.9854 23.8226 34.8436 23.6749L26.0718 14.5456C25.922 14.3897 25.7088 14.3163 25.4988 14.3489C25.2891 14.3814 25.1091 14.5156 25.0157 14.7091L19.9472 25.22C19.8634 25.3938 19.8583 25.5972 19.9333 25.7773Z" fill="#FFC533" />
@@ -39,10 +39,10 @@ function Navbar() {
                         <Input type='text' width={["full", "full", "auto"]} paddingLeft={["33px", "45px"]} placeholder='Search projects' height={["33px", "54px"]} bgColor={"white"} rounded={"30px"} focusBorderColor='white' />
                     </InputGroup>
                 </div>
-                <div className=' absolute right-6 flex items-center ' >
-                    <p role='button' onClick={() => navigate("/create")} className=' lg:block hidden text-[#00071A] font-bold ml-20 ' >Launch project</p>
+                <div className=' absolute right-6 flex items-center z-30 ' >
+                    <p role='button' onClick={() => navigate("/create")} className=' lg:block hidden text-[#00071A] text-lg font-bold ml-20 ' >Launch project</p>
                     {!profile && (
-                        <Button onClick={() => setProfile((prev) => !prev)} display={["none", "none", "flex"]} bgColor={"#5404FF"} ml={"6"} _hover={{ backgroundColor: "#5404FF" }} height={"54px"} leftIcon={
+                        <Button onClick={() => setProfile((prev) => !prev)} px={"8"} fontWeight={"bold"} display={["none", "none", "flex"]} bgColor={"#5404FF"} ml={"56px"} _hover={{ backgroundColor: "#5404FF" }} height={"54px"} leftIcon={
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19.1812 6.94378L19.5348 6.59023L19.1812 6.94378C19.3453 7.10788 19.4375 7.33044 19.4375 7.5625V17.1875C19.4375 17.4196 19.3453 17.6421 19.1812 17.8062C19.0171 17.9703 18.7946 18.0625 18.5625 18.0625H4.8125C4.3981 18.0625 4.00067 17.8979 3.70765 17.6049C3.41462 17.3118 3.25 16.9144 3.25 16.5V5.5C3.25 5.0856 3.41462 4.68817 3.70765 4.39515C4.00067 4.10212 4.3981 3.9375 4.8125 3.9375H16.5C16.5497 3.9375 16.5974 3.95725 16.6326 3.99242C16.6677 4.02758 16.6875 4.07527 16.6875 4.125C16.6875 4.17473 16.6677 4.22242 16.6326 4.25758C16.5974 4.29275 16.5497 4.3125 16.5 4.3125H4.8125C4.49756 4.3125 4.19551 4.43761 3.97281 4.66031C3.75011 4.88301 3.625 5.18506 3.625 5.5C3.625 5.81494 3.75011 6.11699 3.97281 6.33969C4.19551 6.56239 4.49756 6.6875 4.8125 6.6875H18.5625C18.7946 6.6875 19.0171 6.77969 19.1812 6.94378ZM18.5625 17.6875H19.0625V17.1875V7.5625V7.0625H18.5625L4.8125 7.0625L4.81177 7.0625C4.63472 7.06276 4.45893 7.03265 4.29206 6.9735L3.625 6.73704V7.44477V16.5C3.625 16.8149 3.75011 17.117 3.97281 17.3397C4.19551 17.5624 4.49756 17.6875 4.8125 17.6875H18.5625ZM15.027 11.7361L14.6113 11.4583L15.027 11.7361C15.0854 11.6487 15.1684 11.5806 15.2654 11.5404C15.3625 11.5002 15.4693 11.4897 15.5724 11.5102C15.6754 11.5307 15.7701 11.5813 15.8444 11.6556C15.9187 11.7299 15.9693 11.8246 15.9898 11.9276C16.0103 12.0307 15.9998 12.1375 15.9596 12.2346C15.9194 12.3316 15.8513 12.4146 15.7639 12.473C15.6765 12.5313 15.5738 12.5625 15.4688 12.5625C15.3279 12.5625 15.1927 12.5065 15.0931 12.4069C14.9935 12.3073 14.9375 12.1721 14.9375 12.0312C14.9375 11.9262 14.9687 11.8235 15.027 11.7361Z" fill="black" stroke="#E5EDFF" />
                             </svg>} rounded={"30px"} textColor={"white"} >
@@ -50,7 +50,7 @@ function Navbar() {
                         </Button>
                     )}
                     {profile && (
-                        <Button onClick={() => navigate("/project")} px={"8"} display={["none", "none", "flex"]} bgColor={"#5404FF"} ml={"6"} _hover={{ backgroundColor: "#5404FF" }} height={"54px"} leftIcon={
+                        <Button onClick={() => navigate("/profileinfo")} px={"8"} fontWeight={"bold"} display={["none", "none", "flex"]} bgColor={"#5404FF"} ml={"6"} _hover={{ backgroundColor: "#5404FF" }} height={"54px"} leftIcon={
                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Group">
                                     <path id="Vector" d="M1.66669 14.5002C1.66669 13.5277 2.053 12.5951 2.74063 11.9074C3.42826 11.2198 4.36089 10.8335 5.33335 10.8335H12.6667C13.6391 10.8335 14.5718 11.2198 15.2594 11.9074C15.947 12.5951 16.3334 13.5277 16.3334 14.5002C16.3334 14.9864 16.1402 15.4527 15.7964 15.7965C15.4526 16.1403 14.9863 16.3335 14.5 16.3335H3.50002C3.01379 16.3335 2.54747 16.1403 2.20366 15.7965C1.85984 15.4527 1.66669 14.9864 1.66669 14.5002Z" stroke="#EEE5FF" stroke-width="1.5" stroke-linejoin="round" />
