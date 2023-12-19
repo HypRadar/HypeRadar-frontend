@@ -1,6 +1,6 @@
 import { Input, Select, Textarea, Button } from '@chakra-ui/react'
-import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+// import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function ProjectCreation() {

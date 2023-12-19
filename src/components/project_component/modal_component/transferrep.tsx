@@ -1,6 +1,4 @@
-import { Input, Tooltip, Button } from '@chakra-ui/react'
-import { tab } from '@testing-library/user-event/dist/tab'
-import React, { useState } from 'react'
+import { Input, Button } from '@chakra-ui/react'  
 
 interface Props {
     next?: any
@@ -17,7 +15,7 @@ function TransferRep(props: Props) {
                 <div className=" w-fit " >
                     <div className="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] relative">
                         <div className=" w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] left-0 top-0 absolute bg-gray-100 rounded-full"></div>
-                        <img className=" w-[60px] h-[60px] lg:w-[100px] lg:h-[100px] left-[10px] top-[10px] absolute rounded-full shadow" src="https://via.placeholder.com/100x100" />
+                        <img alt='transfer' className=" w-[60px] h-[60px] lg:w-[100px] lg:h-[100px] left-[10px] top-[10px] absolute rounded-full shadow" src="https://via.placeholder.com/100x100" />
                     </div>
                 </div>
                 <div className=' flex flex-col ' >
