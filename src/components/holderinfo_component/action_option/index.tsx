@@ -87,19 +87,19 @@ function ActionOption() {
                 </option>
             </Select> */}
 
-            <ModalLayout open={buyRepT} close={setBuyRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Buy Bitcoin’s RepT'} >
+            <ModalLayout open={buyRepT} close={setBuyRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Buy $Tickr RepT'} >
                 {!tab ?
                     <Buyrep next={setTab} /> :
                     <Successpage close={clickHandler} />
                 }
             </ModalLayout>
-            <ModalLayout open={sellRepT} close={setSellRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Sell Bored Ape Yatch Club RepT'} >
+            <ModalLayout open={sellRepT} close={setSellRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Sell $Tickr RepT'} >
                 {!tab ?
                     <Sellrep next={setTab} /> :
                     <Successpage close={clickHandler} />
                 }
             </ModalLayout>
-            <ModalLayout open={transferRepT} close={setTransferRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Transfer Bored Ape Yatch Club RepT'} >
+            <ModalLayout open={transferRepT} close={setTransferRepT} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Transfer $Tickr RepT'} >
                 {!tab ?
                     <TransferRep next={setTab} /> :
                     <Successpage close={clickHandler} />
