@@ -25,7 +25,7 @@ function ProductCard() {
                 </div>
             </div>
             <div className=" w-full flex lg:flex-row flex-col gap-3 lg:gap-8 items-start mt-4 lg:mt-6 " >
-                <div className=" flex gap-2 " > 
+                <div className=" flex gap-2 lg:gap-8 " > 
                     <div className=" border-r pr-2 lg:pr-8 ">
                         <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">$121,345</p>
                         <p className="text-zinc-500 lg:text-lg text-xs font-normal ">mkt cap</p>

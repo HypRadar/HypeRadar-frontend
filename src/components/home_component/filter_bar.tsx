@@ -1,12 +1,9 @@
 // import React from 'react'
 
 import { Select } from "@chakra-ui/react"
-import { useState } from "react"
+import { useState } from "react" 
 
-interface Props { }
-
-function FilterBar(props: Props) {
-    const { } = props
+function FilterBar() { 
 
     const [active, setActive] = useState(false)
 

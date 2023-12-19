@@ -77,7 +77,7 @@ function ProjectComponent() {
                 </div>
             </div>
             <div className=' bg-white w-full rounded-[10px] items-center  lg:py-9 lg:px-9 px-6 py-6 gap-6 flex lg:flex-row flex-col-reverse ' >
-                <div className=' w-full flex flex-col gap-2 lg:mt-0 mt-12 ' >
+                <div className=' w-full flex flex-col gap-2 lg:mt-0 mt-4 ' >
                     {Header(false)}
                     <div className="w-full text-zinc-800 text-sm lg:text-lg font-normal ">
                         Amrit Pal Singh is a visual artist making non-fungible toys. He is the maker of Toy Faces & Toy Rooms, a collection of artworks inspired by nostalgia and driven by a sense of childlike wonder. His art stems from the need to play. He has been previously commissioned by companies like Google, Snapchat, Netflix, Pinterest, and Adobe.<br /><br />
