@@ -23,7 +23,7 @@ export default function ModalLayout({ open, close, children, size, bg, rounded, 
             <ModalContent zIndex={10} backgroundColor={bg ? bg : "#fff"} maxHeight={"90vh"} rounded={rounded ? "0px" : "6px"} padding="0px" margin="16px" w="full"  h={scrollBehavior ? "full" : "auto"}  >
                 {title && (
                     <>
-                        <ModalHeader zIndex={20} color={titlecolor ? titlecolor : "black"} textAlign={"center"} >{title}</ModalHeader>
+                        <ModalHeader zIndex={20} fontWeight={"medium"} mr={"4"} fontSize={["medium", "medium", "medium"]} color={titlecolor ? titlecolor : "black"} textAlign={"center"} >{title}</ModalHeader>
                         <ModalCloseButton bgColor={"#5404FF"} rounded={"full"} borderColor={"#5404FF"} color={"white"} zIndex={20} />
                     </>
                 )}

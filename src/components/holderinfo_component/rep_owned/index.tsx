@@ -37,11 +37,12 @@ function RepOwned(props: Props) {
                     </Thead>
                     <Tbody>
                         <Tr >
-                            <Td onClick={() => navigate("/project")} role='button'  color={"#5404FF"} gap={"2"} display={"flex"} >
-
-                                <div className="text-neutral-600 border-neutral-600 text-lg font-normal  border-r pr-2">Poligoons</div>
-                                <div className="text-yellow-600 text-lg font-normal ">$1,233</div>
-                            </Td> 
+                            <Td onClick={() => navigate("/project")} role='button' color={"#5404FF"}>
+                                <div className=' flex items-center gap-2 ' > 
+                                    <div className="text-neutral-600 border-neutral-600 text-base font-normal  border-r pr-2">Poligoons</div>
+                                    <div className="text-yellow-600 text-base font-normal ">$1,233</div>
+                                </div>
+                            </Td>
                             <Td color={"#4D4D4D"} >10</Td>
                             <Td fontWeight={"bold"} textAlign={"right"} >
                                 <p className=' text-green-600 ' >$442.34K</p>
