@@ -31,7 +31,7 @@ function BuyRepBtn(props: Props) {
     return (
         <>
             {product && (
-                <Button onClick={(e) => openModal(e)} bgColor={"#5404FF"} width={["full", "fit-content"]} ml={["0px", "auto"]} _hover={{ backgroundColor: "#5404FF" }} height={["33px", "54px"]} fontSize={["sm", "lg"]} px={["4", "8"]} rounded={"30px"} textColor={"white"} >
+                <Button onClick={(e) => openModal(e)} bgColor={"#5404FF"} width={["full", "fit-content"]} ml={["0px", "auto"]} _hover={{ backgroundColor: "#5404FF" }} height={["33px", "54px"]} fontSize={["sm", "lg"]} px={["4", "8"]} rounded={[ "10px", "10px"]} textColor={"white"} >
                     Buy RepT
                 </Button>
             )}

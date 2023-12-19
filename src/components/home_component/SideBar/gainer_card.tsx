@@ -17,7 +17,7 @@ function GainerCard() {
             </div>
 
             <div className="p-2 ml-auto bg-[#CCFFD1] rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
-                <p className="text-right text-[#00990F] text-xs lg:text-lg font-bold ">+$322k</p>
+                <p className="text-right text-green-600 text-xs lg:text-lg font-bold ">+$322k</p>
             </div>
         </div>
     )

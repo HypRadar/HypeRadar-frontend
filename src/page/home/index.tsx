@@ -17,8 +17,8 @@ function Home(props: Props) {
     return (
         <DashboardLayout>
             <div className="flex-1 flex w-full justify-center overflow-auto">
-                <div className=" lg:max-w-7xl w-full flex px-4 lg:px-8 gap-6 " >
-                    <div className={` ${!gainer ? " flex " : "lg:flex hidden"} flex-1  pb-6  flex-col gap-4  overflow-y-auto `}>
+                <div className=" lg:max-w-7xl w-full flex px-0 lg:px-8 gap-6 " >
+                    <div className={` ${!gainer ? " flex " : "lg:flex hidden"} flex-1  pb-6 lg:px-0 px-4  flex-col gap-4 overflow-y-auto `}>
                         <div className=" top-0 sticky bg-[#EBEDF2] z-40 pb-4 " >
                         <FilterBar />
                         </div>

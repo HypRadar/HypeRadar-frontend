@@ -18,10 +18,10 @@ function ProductCard() {
                 </div>
                 <div>
                     <div className="justify-start items-center gap-2 inline-flex">
-                        <p className="text-slate-900 text-[34px] font-bold  leading-10">Bitcoin</p>
+                        <p className="text-slate-900 text-[20px] lg:text-[34px] font-bold ">Bitcoin</p>
                         <div className="w-[25px] h-[25px] relative"></div>
                     </div>
-                    <div className="text-[#00990F] text-lg font-bold ">Price: $5,868</div>
+                    <div className="text-green-600 text-sm lg:text-lg font-bold ">Price: $5,868</div>
                 </div>
             </div>
             <div className=" w-full flex lg:flex-row flex-col gap-3 lg:gap-8 items-start mt-4 lg:mt-6 " >
