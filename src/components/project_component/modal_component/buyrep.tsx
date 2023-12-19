@@ -27,8 +27,8 @@ function Buyrep(props: Props) {
                         <p className="text-slate-900 text-2xl font-bold leading-10">Bitcoin</p>
                         <div className="w-[25px] h-[25px] relative"></div>
                     </div>
-                    <div className="p-2 lg:w-fit bg-green-200 rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
-                        <p className="text-right text-green-700 text-xs lg:text-sm font-bold">Rep price: $4,343</p>
+                    <div className="p-2 lg:w-fit bg-[#E5FFE8] rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
+                        <p className="text-right text-[#00990F] text-xs lg:text-sm font-bold">Rep price: $4,343</p>
                     </div>
                     <p className=' text-[#808080] mt-2 text-xs ' >Project royalty: 10%</p>
                 </div>
@@ -49,20 +49,20 @@ function Buyrep(props: Props) {
                     </div>
                     <Input roundedLeft={"0px"} roundedRight={"5px"} bgColor={"#EBEDF2"} placeholder='0' />
                 </div>
-                <div className="w-full py-6 px-3 bg-green-100 rounded-[5px] flex-col justify-start items-start gap-7 inline-flex">
+                <div className="w-full py-6 px-3 bg-[#E5FFE8] rounded-[5px] flex-col justify-start items-start gap-7 inline-flex">
                     <div className=" w-full justify-between items-start flex">
                         <div className=" text-neutral-600 text-sm font-normal">You’re exchanging</div>
                         <div className="justify-end items-center gap-2 flex">
-                            <div className="text-right text-green-700 border-green-700 pr-2 text-sm font-bold border-r-2 ">4 BNB</div>
-                            <div className="text-right text-green-700 text-sm font-bold">≈$1,200 USD</div>
+                            <div className="text-right text-[#00990F] border-[#00990F] pr-2 text-sm font-bold border-r-2 ">4 BNB</div>
+                            <div className="text-right text-[#00990F] text-sm font-bold">≈$1,200 USD</div>
                         </div>
                     </div>
                     <div className="w-full justify-between items-start gap-[181px] inline-flex">
                         <div className=" text-neutral-600 text-sm font-normal">You receive</div>
-                        <div className="text-right text-green-700 text-sm font-bold">2.11 Bitcoin RepT</div>
+                        <div className="text-right text-[#00990F] text-sm font-bold">2.11 Bitcoin RepT</div>
                     </div>
                 </div>
-                <div className="w-full pl-2  py-4 bg-green-100 rounded-[5px] justify-start items-start inline-flex">
+                <div className="w-full pl-2  py-4 bg-[#E5FFE8] rounded-[5px] justify-start items-start inline-flex">
                     <div className=' flex items-center gap-1 ' >
                         <span className="text-neutral-600 text-xs flex items-center font-bold">Bitcoin Project</span>
                         <span className="text-neutral-600 text-xs font-normal flex items-center gap-1"> will receive 10% of your purchase as Project royalty 

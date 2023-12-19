@@ -11,7 +11,7 @@ function Sellrep(props: Props) {
     } = props
  
     const [show, setShow] = useState(false)
-
+    
     return (
         <div className=' w-full px-6 ' >
             <div className=" flex items-center gap-3 " >
@@ -26,8 +26,8 @@ function Sellrep(props: Props) {
                         <p className="text-slate-900 text-2xl font-bold  leading-10">Bitcoin</p>
                         <div className="w-[25px] h-[25px] relative"></div>
                     </div>
-                    <div className="p-2 lg:w-fit bg-green-200 rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
-                        <p className="text-right text-green-700 text-xs lg:text-sm font-bold ">Rep price: $4,343</p>
+                    <div className="p-2 lg:w-fit bg-[#E5FFE8] rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
+                        <p className="text-right text-[#00990F] text-xs lg:text-sm font-bold ">Rep price: $4,343</p>
                     </div>
                     <p className=' text-[#808080] mt-2 text-xs ' >Project royalty: 10%</p>
                 </div>
@@ -37,18 +37,18 @@ function Sellrep(props: Props) {
                     <p className=' text-[#4D4D4D] ' >Amount of RepT to sell</p>
                     <Input roundedLeft={"5px"} roundedRight={"5px"} bgColor={"#EBEDF2"} placeholder='0' />
                 </div>
-                <div className="w-[229px]"><span className="text-neutral-600 text-sm font-normal ">Holdings:</span><span className="text-green-700 text-sm font-normal "> </span><span className="text-green-700 text-sm font-bold ">20.1233</span></div>
-                <div className="w-full py-6 px-3 bg-green-100 rounded-[5px] flex-col justify-start items-start gap-7 inline-flex">
+                <div className="w-[229px]"><span className="text-neutral-600 text-sm font-normal ">Holdings:</span><span className="text-[#00990F] text-sm font-normal "> </span><span className="text-[#00990F] text-sm font-bold ">20.1233</span></div>
+                <div className="w-full py-6 px-3 bg-[#E5FFE8] rounded-[5px] flex-col justify-start items-start gap-7 inline-flex">
                     <div className=" w-full justify-between items-start flex">
                         <div className=" text-neutral-600 text-sm font-normal ">You’re exchanging</div>
                         <div className="justify-end items-center gap-2 flex">
-                            <div className="text-right text-green-700 border-green-700 pr-2 text-sm font-bold  border-r-2 ">4 BNB</div>
-                            <div className="text-right text-green-700 text-sm font-bold ">≈$1,200 USD</div>
+                            <div className="text-right text-[#00990F] border-[#00990F] pr-2 text-sm font-bold  border-r-2 ">4 BNB</div>
+                            <div className="text-right text-[#00990F] text-sm font-bold ">≈$1,200 USD</div>
                         </div>
                     </div>
                     <div className="w-full justify-between items-start gap-[181px] inline-flex">
                         <div className=" text-neutral-600 text-sm font-normal ">You receive</div>
-                        <div className="text-right text-green-700 text-sm font-bold ">2.11 Bitcoin RepT</div>
+                        <div className="text-right text-[#00990F] text-sm font-bold ">2.11 Bitcoin RepT</div>
                     </div>
                 </div> 
                 {show && (

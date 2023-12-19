@@ -31,12 +31,10 @@ function ProjectOwned(props: Props) {
                     </Thead>
                     <Tbody>
                         <Tr >
-                            <Td color={"#5404FF"} >
-                                <div className="w-[157px] h-8 justify-center items-center gap-2 inline-flex">
-                                    <div className="text-neutral-600 border-neutral-600 text-lg font-normal font-['Inter'] border-r pr-2">Poligoons</div>
-                                    <div className="text-yellow-600 text-lg font-normal font-['Inter']">$1,233</div>
-                                </div>
-                            </Td>
+                            <Td onClick={() => navigate("/project")} role='button'  color={"#5404FF"} gap={"2"} display={"flex"} > 
+                                <div className="text-neutral-600 border-neutral-600 text-lg font-normal  border-r pr-2">Poligoons</div>
+                                <div className="text-yellow-600 text-lg font-normal ">$1,233</div>
+                            </Td> 
                             <Td color={"#4D4D4D"} >10</Td>
                             {profile && (
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >
