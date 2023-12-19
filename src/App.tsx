@@ -22,7 +22,9 @@ function App() {
         <Route path='/create' element={<Create />} >
           <Route index element={<ProjectCreation />} />
           <Route path='royality' element={<Royality />} />
-          {/* <Route path='preview' element={<Preview />} /> */}
+        </Route> 
+        <Route path='/edit' element={<Create />} >
+          <Route index element={<ProjectCreation />} /> 
         </Route> 
         <Route path='/holder' element={<Create />} >
           <Route index element={<HolderComponent />} /> 

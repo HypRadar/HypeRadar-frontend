@@ -1,11 +1,20 @@
 import { Input, Select, Textarea, Button } from '@chakra-ui/react'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 function ProjectCreation() {
 
     const navigate = useNavigate()
+
+    const clickHandler = () => {
+        if (window?.location?.pathname?.includes("edit")) {
+            // goto the project profile of edit project
+            navigate("/project")
+        } else {
+            navigate("/create/royality")
+        }
+    }
 
     return (
         <div className=" lg:max-w-7xl w-full flex flex-col px-2 lg:px-8 gap-6 " >
@@ -23,11 +32,17 @@ function ProjectCreation() {
                 <div className=' w-full flex flex-col gap-6 ' >
                     <div className=' w-full flex flex-col gap-2  ' >
                         <p className=' text-[#4D4D4D] ' ><span className=' text-[#D20000] ' >*</span> Project name</p>
-                        <Input fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} />
+                        <Input disabled={window?.location?.pathname?.includes("edit") ? true : false} cursor={window?.location?.pathname?.includes("edit") ? "not-allowed" : "auto"} fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} />
                     </div>
+                    {window?.location?.pathname?.includes("edit") && (
+                        <div className=' w-full flex flex-col gap-2  ' >
+                            <p className=' text-[#4D4D4D] ' ><span className=' text-[#D20000] ' >*</span> Project royality</p>
+                            <Input placeholder='10%' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} />
+                        </div>
+                    )}
                     <div className=' w-full flex flex-col gap-2  ' >
                         <p className=' text-[#4D4D4D] ' ><span className=' text-[#D20000] ' >*</span> Project ticker</p>
-                        <Input placeholder='e.g BTC' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} />
+                        <Input disabled={window?.location?.pathname?.includes("edit") ? true : false} cursor={window?.location?.pathname?.includes("edit") ? "not-allowed" : "auto"} placeholder='e.g BTC' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} />
                     </div>
                     <div className=' w-full flex flex-col gap-2  ' >
                         <p className=' text-[#4D4D4D] ' ><span className=' text-[#D20000] ' >*</span> Project category</p>
@@ -81,10 +96,11 @@ function ProjectCreation() {
                     </svg>
                 </div>
             </div>
-            <Button py={3} onClick={() => navigate("/create/royality")} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} paddingY={"3"} >
-                Continue
-            </Button>
-            <div className=' py-4 ' />
+            <div className=' w-full' > 
+                <Button py={3} onClick={() => clickHandler()} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} paddingY={"3"} >
+                    Continue
+                </Button>
+            </div> 
         </div>
     )
 }

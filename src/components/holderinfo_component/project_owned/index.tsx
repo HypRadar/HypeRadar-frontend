@@ -1,5 +1,6 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Button } from '@chakra-ui/react'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
     profile?: boolean
@@ -8,6 +9,12 @@ function ProjectOwned(props: Props) {
     const {
         profile
     } = props
+
+    const navigate = useNavigate()
+
+    const clickHandler =()=> {
+        navigate("/edit")
+    }
 
     return (
         <div className=' w-full mt-8 ' >
@@ -33,7 +40,7 @@ function ProjectOwned(props: Props) {
                             <Td color={"#4D4D4D"} >10</Td>
                             {profile && (
                                 <Td fontWeight={"bold"} textAlign={"right"} color={"#00990F"} >
-                                    <Button rounded={"30px"} width={"fit-content"} paddingX={"6"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#003CD2" }} height={["38px", "54px"]} >
+                                    <Button onClick={()=> clickHandler()} rounded={"30px"} width={"fit-content"} paddingX={"6"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} height={["38px", "54px"]} >
                                         Edit
                                     </Button>
                                 </Td>
@@ -44,7 +51,7 @@ function ProjectOwned(props: Props) {
             </TableContainer>
 
             {profile && (
-                <Button rounded={"30px"} width={"fit-content"} paddingX={"6"} mt={"12"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#003CD2" }} height={["38px", "54px"]} >
+                <Button rounded={"30px"} width={"fit-content"} paddingX={"6"} mt={"12"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} height={["38px", "54px"]} >
                     Create Project
                 </Button>
             )}

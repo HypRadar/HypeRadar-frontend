@@ -1,4 +1,5 @@
 
+import { Button } from '@chakra-ui/react'
 import CopyComponent from '../shared/copy_component'
 import BuyRepBtn from './buy_rep_btn'
 import SellRepBtn from './sell_rep_btn '
@@ -6,7 +7,12 @@ import { useNavigate } from 'react-router-dom'
 
 function ProjectComponent() {
 
+
     const navigate = useNavigate()
+
+    const clickHandler =()=> {
+        navigate("/edit")
+    }
 
     const Header = (item: boolean) => {
         return (
@@ -103,9 +109,16 @@ function ProjectComponent() {
                     <img alt='projecttwo' className=" w-full h-[356px] lg:w-full lg:h-full relative lg:mt-0 mt-4 rounded-[10px]" src="https://via.placeholder.com/500x500" />
                 </div>
             </div>
+            <div className=' h-fit ' >
+
             <div className=' bg-slate-400 h-[356px] lg:h-[569px] w-full rounded-[10px] items-center p-9 gap-6 flex ' >
 
             </div>
+            </div>
+
+            <Button py={3} onClick={() => clickHandler()} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} paddingY={"3"} >
+                Edit Project Profile
+            </Button> 
         </div>
     )
 }

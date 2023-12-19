@@ -9,7 +9,7 @@ function Project(props: Props) {
 
     return (
         <DashboardLayout screen={true} >
-            <div className=" flex flex-1 w-full py-8 justify-center overflow-auto">
+            <div className=" flex flex-1 w-full py-8  justify-center overflow-auto">
                 <Outlet />
             </div>
         </DashboardLayout>
