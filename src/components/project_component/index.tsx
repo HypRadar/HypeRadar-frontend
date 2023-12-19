@@ -10,7 +10,10 @@ function ProjectComponent() {
 
     const Header = (item: boolean) => {
         return (
-            <p className={` ${item ? "lg:hidden text-center" : "lg:block hidden"} text-slate-900 text-[34px] font-bold  leading-10`}>Polygon</p>
+            // dollar symbol is constant
+            
+            <div className={` ${item ? "lg:hidden text-center" : "lg:block hidden"} text-slate-900 text-[34px] font-bold  leading-10`}>$BAYC</div>
+            // <p className={` ${item ? "lg:hidden text-center" : "lg:block hidden"} text-slate-900 text-[34px] font-bold  leading-10`}>Polygon</p>
         )
     }
 
@@ -74,7 +77,7 @@ function ProjectComponent() {
                     <div className="w-full h-[40px] lg:h-[50px] lg:justify-start justify-between gap-2 lg:gap-6 flex">
                         <BuyRepBtn />
                         <SellRepBtn />
-                        <div role='button' onClick={() => navigate("/holder")} className=" lg:px-8 lg:w-fit w-full lg:py-2 bg-yellow-50 rounded-[10px] border-[2px] border-yellow-600 justify-center items-center gap-2 flex">
+                        <div role='button' onClick={() => navigate("/holder")} className=" lg:px-8 lg:w-fit w-full lg:py-2 bg-yellow-50 rounded-[10px] border lg:border-[2px] border-yellow-600 justify-center items-center gap-2 flex">
                             <p className="text-center text-yellow-600 text-sm lg:text-lg font-semibold ">Holders</p>
                         </div>
                     </div>

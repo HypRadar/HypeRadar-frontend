@@ -1,9 +1,13 @@
 // import React from 'react' 
 
+import { useNavigate } from "react-router-dom"
+
 function GainerCard() { 
 
+    const navigate = useNavigate()
+
     return (
-        <div className="w-full  py-3 border-b-2 border-slate-200 flex items-center relative">
+        <div role="button" onClick={() => navigate("/project")} className="w-full  py-3 border-b-2 border-slate-200 flex items-center relative">
             <div className=' w-fit ' >
                 <div className="w-20 h-20 relative">
                     <div className="w-20 h-20 left-0 top-0 absolute bg-gray-100 rounded-full" />

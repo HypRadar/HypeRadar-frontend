@@ -22,7 +22,7 @@ function RepOwned(props: Props) {
                     <Thead>
                         <Tr >
                             <Th fontWeight={"bold"} color={"#100033"} >Project | Price</Th>
-                            <Th fontWeight={"bold"} color={"#100033"} >Reps held</Th>
+                            <Th fontWeight={"bold"} color={"#100033"} >RepT held</Th>
                             <Th fontWeight={"bold"} color={"#100033"} textAlign={"right"} >
                                 <p className='' >Value</p>
                             </Th>

@@ -16,7 +16,7 @@ function ProjectOwned(props: Props) {
                     <Thead>
                         <Tr >
                             <Th fontWeight={"bold"} color={"#100033"} >Project | Price</Th>
-                            <Th fontWeight={"bold"} color={"#100033"} >Reps held</Th>
+                            <Th fontWeight={"bold"} color={"#100033"} >RepT held</Th>
                             {profile && (
                                 <Th fontWeight={"bold"} color={"#100033"} ></Th>
                             )}
@@ -43,9 +43,11 @@ function ProjectOwned(props: Props) {
                 </Table>
             </TableContainer>
 
-            <Button rounded={"30px"} width={"fit-content"} paddingX={"6"} mt={"12"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#003CD2" }} height={["38px", "54px"]} >
-                Create Project
-            </Button>
+            {profile && (
+                <Button rounded={"30px"} width={"fit-content"} paddingX={"6"} mt={"12"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#003CD2" }} height={["38px", "54px"]} >
+                    Create Project
+                </Button>
+            )}
         </div>
     )
 }
