@@ -17,11 +17,11 @@ function GainerCard() {
             </div>
             <div className=' ml-3 ' >
                 <p className="text-slate-900 lg:text-2xl font-bold  leading-loose">Hyper Protocol</p>
-                <p className="text-yellow-500 text-lg font-bold ">Price: $8,532</p>
+                <p className="text-yellow-500 text-sm lg:text-lg font-bold ">Price: $8,532</p>
             </div>
 
             <div className="p-2 ml-auto bg-[#CCFFD1] rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
-                <p className="text-right text-green-600 text-xs lg:text-lg font-bold ">+$322k</p>
+                <p className="text-right text-green-600 text-sm lg:text-lg font-bold ">+$322k</p>
             </div>
         </div>
     )
