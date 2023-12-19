@@ -1,11 +1,14 @@
 // import React from 'react'
 
 import { Select } from "@chakra-ui/react"
+import { useState } from "react"
 
 interface Props { }
 
 function FilterBar(props: Props) {
     const { } = props
+
+    const [active, setActive] = useState(false)
 
     return (
         <div className=' w-full flex items-center gap-4 ' >
@@ -19,8 +22,8 @@ function FilterBar(props: Props) {
             </svg>} height={["33px", "54px"]} bgColor={"white"} fontSize={["sm", "16px"]} focusBorderColor="white" placeholder="Chains">
 
             </Select>
-            <div className=" w-[70%] lg:w-[145px] h-[33px] lg:h-[54px] text-sm lg:text-base rounded bg-white flex justify-center items-center " >
-                Chains
+            <div role="button" onClick={()=> setActive((prev)=> !prev)} className={` ${active ? " text-white bg-[#5404FF] " : " bg-white text-black"} w-[70%] lg:w-[145px] h-[33px] lg:h-[54px] text-sm lg:text-base rounded flex justify-center items-center `} >
+                Newest
             </div>
         </div>
     )
