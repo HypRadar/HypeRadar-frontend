@@ -8,7 +8,7 @@ function HolderComponent() {
     const navigate = useNavigate()
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-1 flex-col px-4 lg:px-8 gap-6" >
             <div className=' w-fit h-fit mx-auto ' >
                 <div className=' w-[320px] h-[320px]  lg:w-[540px] lg:h-[540px] flex justify-center items-center p-2 relative' >
                     <img alt='circle' src='/images/circle.png' className=' w-full h-full absolute inset-0 ' />
@@ -38,6 +38,7 @@ function HolderComponent() {
                     <div className="text-zinc-500 text-sm lg:text-lg font-normal">RepT in circulation</div>
                 </div>
             </div>
+
             <div className=' w-full mt-8 ' >
                 <TableContainer>
                     <Table variant='simple' >

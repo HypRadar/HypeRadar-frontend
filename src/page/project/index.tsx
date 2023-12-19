@@ -5,7 +5,7 @@ import DashboardLayout from '../../components/shared/dashboard_layout'
 function Project() { 
     return (
         <DashboardLayout screen={true} >
-            <div className=" flex flex-1 w-full py-8  justify-center overflow-auto">
+            <div className=" flex flex-1 w-screen py-8  overflow-x-hidden justify-center overflow-auto">
                 <Outlet />
             </div>
         </DashboardLayout>
