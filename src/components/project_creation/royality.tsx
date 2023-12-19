@@ -13,7 +13,7 @@ function Royality() {
     }
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col px-2 lg:px-8 gap-4 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-4 " >
             <div className=' bg-white w-full rounded-[10px] py-9 lg:px-9 px-4 gap-5 flex flex-col ' >
                 <p className="text-center text-slate-900 text-2xl font-bold leading-loose">Project Royalty</p>
                 <div className="w-full">

@@ -8,7 +8,7 @@ function HolderComponent() {
     const navigate = useNavigate()
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col overflow-x-hidden lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col lg:px-8 gap-6 " >
             <div className=' w-fit h-fit mx-auto ' >
                 <div className=' w-[320px] h-[320px]  lg:w-[540px] lg:h-[540px] flex justify-center items-center p-2 relative' > 
                     <img alt='circle' src='/images/circle.png' className=' w-full h-full absolute inset-0 ' />
@@ -28,16 +28,16 @@ function HolderComponent() {
                     </div>
                 </div>
             </div>
-            <div className=' w-full flex justify-center ml-4 ' >
-                <div className="w-fit h-auto flex-col pr-4 border-r border-zinc-500 justify-start items-end inline-flex">
-                    <div className="text-right text-green-700 text-3xl font-bold leading-10">211</div>
-                    <div className="text-right text-zinc-500 text-sm font-normal">$BAYC holders</div>
+                <div className=' w-full flex justify-center ml-4 ' >
+                    <div className="w-fit h-auto flex-col pr-4 border-r border-zinc-500 justify-start items-end inline-flex">
+                        <div className="text-right text-green-700 text-lg lg:text-[34px] font-bold ">211</div>
+                        <div className="text-right text-zinc-500 text-sm lg:text-lg font-normal">RepT holders</div>
+                    </div>
+                    <div className="w-fit h-auto pl-4 flex-col justify-start items-start inline-flex">
+                        <div className="text-green-700 text-lg lg:text-[34px] font-bold ">145</div>
+                        <div className="text-zinc-500 text-sm lg:text-lg font-normal">RepT in circulation</div>
+                    </div>
                 </div>
-                <div className="w-fit h-auto pl-4 flex-col justify-start items-start inline-flex">
-                    <div className="text-green-700 text-2xl font-bold leading-10">145</div>
-                    <div className="text-zinc-500 text-sm font-normal">$BAYC in circulation</div>
-                </div>
-            </div>
             <div className=' w-full mt-8 ' >
                 <TableContainer>
                     <Table variant='simple' >

@@ -17,7 +17,7 @@ function ProjectCreation() {
     }
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col px-2 lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-6 " >
             <div className=' bg-white w-full rounded-[10px] py-9 px-4 lg:py-[56px] lg:px-[80px] gap-5 flex lg:flex-row flex-col ' >
                 <div className=' w-fit ' >
                     <div role='button' className=" w-[120px] h-[120px] lg:w-[300px] lg:h-[300px] bg-slate-200 rounded-[500px] justify-center items-center flex">

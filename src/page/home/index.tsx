@@ -28,7 +28,7 @@ function Home(props: Props) {
                         <ProductCard />
                         <ProductCard />
                     </div>
-                    <div className={` ${gainer ? " flex " : "lg:flex hidden"} lg:w-fit w-full  overflow-y-auto `} >
+                    <div className={` ${gainer ? " flex " : "lg:flex hidden"} lg:w-fit w-full lg:px-0 px-4 overflow-y-auto `} >
                         <SideBar />
                     </div>
                 </div>
