@@ -58,13 +58,13 @@ function ActionOption() {
                 <Portal>
                     <PopoverContent width={"fit-content"} bgColor={"#DCCCFF"} > 
                         <PopoverBody> 
-                            <Flex onClick={() => setBuyRepT(true)} as={"button"} py={"4"} borderBottom={"1px"} fontWeight={"bold"} justifyContent={"start"} fontSize={"lg"} borderColor={"#B999FF"} color={"#100033"} >
+                            <Flex onClick={() => setBuyRepT(true)} as={"button"} py={"4"} borderBottom={"1px"} fontWeight={"bold"} justifyContent={"start"} fontSize={[ "sm", "lg"]} borderColor={"#B999FF"} color={"#100033"} >
                                 Buy RepT
                             </Flex>
-                            <Flex onClick={() => setSellRepT(true)} as={"button"} py={"4"} borderBottom={"1px"} fontWeight={"bold"} justifyContent={"start"} fontSize={"lg"} borderColor={"#B999FF"} color={"#100033"} >
+                            <Flex onClick={() => setSellRepT(true)} as={"button"} py={"4"} borderBottom={"1px"} fontWeight={"bold"} justifyContent={"start"} fontSize={[ "sm", "lg"]} borderColor={"#B999FF"} color={"#100033"} >
                                 Sell RepT
                             </Flex>
-                            <Flex onClick={() => setTransferRepT(true)} as={"button"} py={"4"} borderBottom={"0px"} fontWeight={"bold"} justifyContent={"start"} fontSize={"lg"} borderColor={"#B999FF"} color={"#100033"} >
+                            <Flex onClick={() => setTransferRepT(true)} as={"button"} py={"4"} borderBottom={"0px"} fontWeight={"bold"} justifyContent={"start"} fontSize={[ "sm", "lg"]} borderColor={"#B999FF"} color={"#100033"} >
                                 Transfer RepT
                             </Flex>
                         </PopoverBody> 
