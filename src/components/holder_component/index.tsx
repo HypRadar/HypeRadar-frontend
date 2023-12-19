@@ -17,7 +17,7 @@ function HolderComponent() {
                     </div>
                 </div>
                 {/* <img alt='holder' className=" w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] rounded-full shadow" src="https://via.placeholder.com/188x188" /> */}
-                <p className="text-slate-900 text-3xl font-bold ">Polygon</p>
+                <p className="text-slate-900 text-[48px] font-bold ">Polygon</p>
                 <div className=" text-neutral-700 lg:text-2xl text-base font-bold">$BAYC</div>
                 <div className="p-2 bg-green-200 rounded-[5px] flex-col justify-center items-end gap-1 inline-flex">
                     <p className="text-right text-green-700 text-xs lg:text-sm font-bold">Price: $4,343</p>
