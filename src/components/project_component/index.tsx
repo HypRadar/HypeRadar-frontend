@@ -34,7 +34,7 @@ function ProjectComponent() {
                     <div className="w-full justify-start lg:mt-6 lg:items-start items-center gap-4 flex-col flex lg:flex-row">
 
                         <div className=" p-2 lg:p-4 lg:w-fit bg-[#E5FFE8] rounded-[5px] lg:flow-row flex-col justify-center items-end gap-1 inline-flex">
-                            <p className="text-right text-[#00990F] text-lg lg:text-[24px] font-bold ">Rep price: $4,343</p>
+                            <p className="text-right text-[#00990F] text-lg lg:text-[24px] font-bold ">RepT price: $4,343</p>
                         </div> 
                         <div className="p-2.5 bg-white rounded-[10px] justify-center items-end gap-8 flex">
                             <svg className=' lg:w-[30px] lg:h-[30px] w-[18px] h-[18px] ' viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
