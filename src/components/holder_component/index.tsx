@@ -8,13 +8,12 @@ function HolderComponent() {
     const navigate = useNavigate()
 
     return (
-        <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-6 " >
+        <div className=" lg:max-w-7xl w-full flex flex-col  lg:px-8 gap-6 " >
             <div className=' bg-white w-[280px] h-[280px] lg:w-[455px] mx-auto lg:h-[455px] rounded-full py-6 lg:py-12 gap-1 flex flex-col items-center ' >
-
                 <div className=' w-fit h-fit ' >
                     <div className="w-[96px] h-[96px] lg:w-56 lg:h-56 relative">
                         <div className=" w-[96px] h-[96px] lg:w-56 lg:h-56 left-0 top-0 absolute bg-gray-100 rounded-full" />
-                        <img className="w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] left-[18px] top-[18px] absolute rounded-full shadow" src="https://via.placeholder.com/188x188" />
+                        <img alt='holder' className="w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] left-[18px] top-[18px] absolute rounded-full shadow" src="https://via.placeholder.com/188x188" />
                     </div>
                 </div>
                 {/* <img alt='holder' className=" w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] rounded-full shadow" src="https://via.placeholder.com/188x188" /> */}

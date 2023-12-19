@@ -1,9 +1,6 @@
 import GainerCard from './gainer_card'
 
-interface Props { }
-
-function SideBar(props: Props) {
-    const { } = props
+function SideBar() { 
 
     return (
         <div className=' lg:w-[468px] w-full h-fit bg-white rounded-[10px] pt-4 lg:pt-6 px-2 lg:px-4 ' >

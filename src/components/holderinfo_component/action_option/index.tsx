@@ -1,4 +1,4 @@
-import { Button, Select } from '@chakra-ui/react'
+import { Select } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Buyrep from '../../project_component/modal_component/buyrep'
 import Successpage from '../../project_component/modal_component/successpage'
@@ -6,12 +6,9 @@ import ModalLayout from '../../shared/modal_layout'
 import Sellrep from '../../project_component/modal_component/sellrep'
 import TransferRep from '../../project_component/modal_component/transferrep'
 
-interface Props { }
 
-function ActionOption(props: Props) {
-    const { } = props
-
-    const [show, setShow] = useState(false)
+function ActionOption() { 
+ 
     const [tab, setTab] = useState(false)
     const [buyRepT, setBuyRepT] = useState(false)
     const [sellRepT, setSellRepT] = useState(false)

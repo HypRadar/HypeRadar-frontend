@@ -18,7 +18,7 @@ function Navbar() {
     return (
         <div className=' w-full flex justify-center h-24 items-center ' >
             <div className=" lg:max-w-[1460px] relative px-6 lg:px-8 w-full flex items-center justify-between lg:justify-start flex-1 h-[54px]">
-                <div onClick={() => navigate("/")} className=' w-fit absolute left-6 flex items-center  ' >
+                <div onClick={() => navigate("/")} className=' w-fit lg:absolute left-6 flex items-center  ' >
                     <svg className=' w-[33px] h-[33px] lg:w-[54px] lg:h-[54px] rounded-full bg-blue-500 ' viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="54" height="54" rx="27" fill="#5404FF" />
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9333 25.7773C20.0082 25.9574 20.1558 26.0963 20.3375 26.158L27.7464 28.6721C27.8392 28.7037 27.9362 28.7134 28.0306 28.7022C28.1203 28.6916 28.2078 28.6619 28.2869 28.614L34.7184 24.7183C34.8905 24.6141 35.0051 24.4345 35.0295 24.231C35.054 24.0275 34.9854 23.8226 34.8436 23.6749L26.0718 14.5456C25.922 14.3897 25.7088 14.3163 25.4988 14.3489C25.2891 14.3814 25.1091 14.5156 25.0157 14.7091L19.9472 25.22C19.8634 25.3938 19.8583 25.5972 19.9333 25.7773Z" fill="#FFC533" />
@@ -29,14 +29,14 @@ function Navbar() {
                 </div>
                 <div className=' lg:mx-auto lg:px-0 px-5 flex items-center ' >
                     <InputGroup>
-                        <InputLeftElement pointerEvents='none' height={["33px", "54px"]} width={["33px", "54px"]} >
+                        <InputLeftElement pointerEvents='none' height={["40px", "54px"]} width={["40px", "54px"]} >
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Search-icon">
                                     <path id="Vector" d="M16.5 14.4522L17.9092 15.8614C18.4747 16.4269 18.4747 17.3437 17.9092 17.9092C17.3437 18.4747 16.4269 18.4747 15.8614 17.9092L14.4522 16.5M3.66667 9.89996C3.66667 6.45738 6.45742 3.66663 9.89999 3.66663C13.3426 3.66663 16.1333 6.45738 16.1333 9.89996C16.1333 13.3425 13.3426 16.1333 9.89999 16.1333C6.45742 16.1333 3.66667 13.3425 3.66667 9.89996Z" stroke="#808080" stroke-width="1.5" stroke-linecap="round" />
                                 </g>
                             </svg>
                         </InputLeftElement>
-                        <Input type='text' width={["full", "full", "auto"]} paddingLeft={["33px", "45px"]} placeholder='Search projects' height={["33px", "54px"]} bgColor={"white"} rounded={"30px"} focusBorderColor='white' />
+                        <Input type='text' width={["full", "full", "auto"]} paddingLeft={["40px", "45px"]} placeholder='Search projects' height={["40px", "54px"]} bgColor={"white"} rounded={"30px"} focusBorderColor='white' />
                     </InputGroup>
                 </div>
                 <div className=' absolute right-6 flex items-center z-30 ' >

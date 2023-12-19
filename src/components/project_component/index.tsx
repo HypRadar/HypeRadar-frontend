@@ -21,7 +21,7 @@ function ProjectComponent() {
                 <div className=' w-fit ' >
                     <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative flex-col justify-start items-start inline-flex">
                         {/* <div className="w-[350px] h-[350px] rounded-full border-4 border-violet-600"></div> */}
-                        <img className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative rounded-[500px]" src="https://via.placeholder.com/300x300" />
+                        <img alt='project' className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative rounded-[500px]" src="https://via.placeholder.com/300x300" />
                     </div>
                 </div>
                 <div className=' flex flex-col lg:gap-0 gap-4 lg:w-auto w-full lg:items-start items-center px-6 lg:px-0 ' >
