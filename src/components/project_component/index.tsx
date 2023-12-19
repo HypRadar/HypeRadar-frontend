@@ -19,9 +19,13 @@ function ProjectComponent() {
             <div className=' bg-white w-full rounded-[10px] items-center lg:py-9 lg:px-9 px-0 py-6 gap4 lg:gap-12 flex lg:flex-row flex-col ' >
 
                 <div className=' w-fit ' >
-                    <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative flex-col justify-start items-start inline-flex">
-                        {/* <div className="w-[350px] h-[350px] rounded-full border-4 border-violet-600"></div> */}
+                    {/* <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative flex-col justify-start items-start inline-flex"> 
                         <img alt='project' className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative rounded-[500px]" src="https://via.placeholder.com/300x300" />
+                    </div> */}
+
+                    <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] relative">
+                        <div className=" w-[102px] lg:w-[300px] lg:h-[300px] h-[102px] left-0 top-0 absolute bg-gray-100 rounded-full"></div>
+                        <img alt="product" className="  w-[82px] lg:w-[260px] lg:h-[260px] h-[82px] left-[10px] top-[10px]  lg:left-[20px] lg:top-[20px] absolute rounded-full shadow" src="https://via.placeholder.com/100x100" />
                     </div>
                 </div>
                 <div className=' flex flex-col lg:gap-0 gap-4 lg:w-auto w-full lg:items-start items-center px-6 lg:px-0 ' >
