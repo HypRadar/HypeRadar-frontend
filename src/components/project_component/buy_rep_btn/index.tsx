@@ -40,7 +40,7 @@ function BuyRepBtn(props: Props) {
                     Buy RepT
                 </Button>
             )}
-            <ModalLayout open={open} close={setOpen} size={tab ? "md" : "2xl"} title={tab ? 'Transaction successful' : 'Buy Bitcoin’s RepT'} >
+            <ModalLayout open={open} close={setOpen} size={tab ? "2xl" : "2xl"} title={tab ? 'Transaction successful' : 'Buy Bitcoin’s RepT'} >
                 {!tab ?
                     <Buyrep next={setTab} /> :
                     <Successpage close={clickHandler} />
