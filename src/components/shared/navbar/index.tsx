@@ -73,6 +73,7 @@ function Navbar() {
                 isOpen={isOpen}
                 placement='right'
                 onClose={onClose}
+                size="xs"
             >
                 <DrawerOverlay />
                 <DrawerContent>
