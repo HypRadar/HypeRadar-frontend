@@ -94,7 +94,7 @@ function Navbar() {
                                 </div>
                             )}
                             {profile && (
-                                <div role='button' onClick={() => clickHandler("/project")} className=' flex items-center w-full py-3 justify-end gap-4 ' >
+                                <div role='button' onClick={() => clickHandler("/profileinfo")} className=' flex items-center w-full py-3 justify-end gap-4 ' >
                                     <p className="text-right text-slate-900 text-sm font-bold ">Profile</p>
 
                                     <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
