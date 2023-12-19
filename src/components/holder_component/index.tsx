@@ -19,11 +19,11 @@ function HolderComponent() {
                                 <img alt='holder' className="w-[60px] h-[60px] lg:w-[188px] lg:h-[188px] left-[10px] top-[10px]  lg:left-[18px] lg:top-[18px] absolute rounded-full shadow" src="https://via.placeholder.com/188x188" />
                             </div>
                         </div>
-                        <p className="text-slate-900 text-[34px] font-bold leading-tight ">Polygon</p>
+                        <p className="text-slate-900 text-lg lg:text-[34px] font-bold leading-tight ">Polygon</p>
                         {/* if project name is too long limit the text */}
                         <div className=" text-yellow-500 lg:text-2xl text-base mt2 font-bold">$BAYC</div>
                         <div className="py-2 px-4 bg-[#E5FFE8] rounded-[30px] mt-4 flex-col justify-center items-end gap-1 inline-flex">
-                            <p className="text-right text-[#00990F] text-xs lg:text-2xl font-bold">Price: $4,343</p>
+                            <p className="text-right text-[#00990F] text-sm lg:text-2xl font-bold">Price: $4,343</p>
                         </div>
                     </div>
                 </div>
