@@ -15,11 +15,11 @@ import RepRecieved from "./components/holderinfo_component/rep_recieved";
 import ProjectOwned from "./components/holderinfo_component/project_owned";
 import Project from "./page/project";
 import ProjectComponent from "./components/project_component";
-import Web3Wallet from "./containers/Web3Wallet";
 // import './App.css'
 import { ETHERS_CONFIG, WALLET_CONNECT_ID } from "./constants";
 import { BASE_CHAINS_LIST, CHAIN_ID } from "./constants/network";
 import { createWeb3Modal } from "@web3modal/ethers/react";
+import { Web3ContextProvider } from "./context/Web3Context";
 
 const projectId = WALLET_CONNECT_ID;
 
@@ -50,12 +50,12 @@ function App() {
         <Route path="/project" element={<Project />}>
           <Route index element={<ProjectComponent />} />
         </Route>
-        <Route path="/profileinfo" element={<HolderInfo profile={true} />}>
+        <Route path="/profileinfo/:address" element={<HolderInfo profile={true} />}>
           <Route index element={<RepOwned profile={true} />} />
           <Route path="received" element={<RepRecieved profile={true} />} />
           <Route path="owned" element={<ProjectOwned profile={true} />} />
         </Route>
-        <Route path="/holderinfo" element={<HolderInfo />}>
+        <Route path="/holderinfo/:address" element={<HolderInfo />}>
           <Route index element={<RepOwned />} />
           <Route path="received" element={<RepRecieved />} />
           <Route path="owned" element={<ProjectOwned />} />
@@ -65,9 +65,9 @@ function App() {
   );
 
   return (
-    <Web3Wallet>
+    <Web3ContextProvider>
       <RouterProvider router={router} />
-    </Web3Wallet>
+    </Web3ContextProvider>
   );
 }
 

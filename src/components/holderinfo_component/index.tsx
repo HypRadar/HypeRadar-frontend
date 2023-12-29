@@ -2,11 +2,15 @@
 
 import CopyComponent from "../shared/copy_component"
 
-function HolderInfoComponent() {
+interface ProfileInfoProps {
+    address: string
+}
+
+function HolderInfoComponent(props: ProfileInfoProps) {
 
     return (
         <div className=' w-full flex justify-center flex-col ' > 
-            <CopyComponent item='Oxsj45b43jh4h232bddhy33ddd' fontsize='text-2xl font-normal w-full justify-center' color='text-slate-900 text-center' />
+            <CopyComponent item={props.address} fontsize='text-2xl font-normal w-full justify-center' color='text-slate-900 text-center' />
             {/* <div className="text-center text-slate-900 text-2xl font-normal leading-loose"></div> */}
 
             <div className=' w-full mt-8 ' >
