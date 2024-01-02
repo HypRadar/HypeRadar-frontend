@@ -26,6 +26,16 @@ export const BASE_BSC_SCAN_URLS = {
   [ChainId.TESTNET]: "https://testnet.bscscan.com",
 };
 
+const BASE_API_URLS = {
+  development: "http://127.0.0.1:8000/",
+  production: "https://api.hyprada.com/",
+  test: "http://127.0.0.1:8000/"
+};
+
+export const BASE_API_URL = BASE_API_URLS[process.env.NODE_ENV];
+
+export const JWT_KEY = 'JWT-token';
+
 export const BASE_BSC_SCAN_URL = (BASE_BSC_SCAN_URLS as Record<number, string>)[CHAIN_ID];
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18);
 export const DEFAULT_GAS_LIMIT = 500000;

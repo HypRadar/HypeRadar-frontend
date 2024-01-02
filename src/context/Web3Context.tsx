@@ -5,6 +5,9 @@ import {
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 import { CHAIN_ID } from "../constants/network";
+import { handleJwtClaiming } from "../helpers/user";
+import { JWT_KEY } from "../constants";
+import { decodedJWT } from "../utils";
 
 interface Web3ContextType {
   chainId: number | undefined;
@@ -37,11 +40,34 @@ export const Web3ContextProvider = ({
     }
   };
 
+  const authenticateAddress = async () => {
+    const jwtToken = localStorage.getItem(JWT_KEY) || null;
+
+      if (jwtToken) {
+        const jwtDetails = decodedJWT();
+        const userAddress = jwtDetails['address'];
+
+        if (userAddress != address) {
+          localStorage.removeItem(JWT_KEY);
+          window.location.reload();
+        }
+        console.log("In here", userAddress, address);
+      } else {
+        await handleJwtClaiming(walletProvider, address ?? "");
+      }
+  }
+
   useEffect(() => {
     if (isConnected && chainId !== CHAIN_ID) {
       switchWalletChain();
     }
   }, [chainId, isConnected]);
+
+  useEffect(() => {
+    if (isConnected && chainId === CHAIN_ID) {
+      authenticateAddress();
+    }
+  }, [chainId, isConnected, address]);
 
   const web3ContextValue = useMemo(
     () => ({
@@ -63,9 +89,7 @@ export function useWeb3Context() {
   const context = useContext(Web3Context);
 
   if (!context) {
-    throw new Error(
-      "useWeb3Context must be used within a Web3ContextProvider"
-    );
+    throw new Error("useWeb3Context must be used within a Web3ContextProvider");
   }
 
   return context;
