@@ -51,7 +51,6 @@ export const Web3ContextProvider = ({
           localStorage.removeItem(JWT_KEY);
           window.location.reload();
         }
-        console.log("In here", userAddress, address);
       } else {
         await handleJwtClaiming(walletProvider, address ?? "");
       }
