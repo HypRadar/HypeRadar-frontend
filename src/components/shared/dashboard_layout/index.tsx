@@ -11,7 +11,7 @@ function DashboardLayout(props: Props) {
 
     return ( 
         <div className={`flex flex-col w-full relative ${screen ? " h-screen  overflow-x-hidden " : "h-screen  lg:overflow-hidden"} bg-[#EBEDF2]`} >
-            <div className=" w-full sticky top-0 z-10 bg-[#EBEDF2] " >
+            <div className=" w-full sticky top-0 z-[100] bg-[#EBEDF2] " >
                 <Navbar />
             </div>
             {children}

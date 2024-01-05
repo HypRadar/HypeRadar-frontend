@@ -14,9 +14,7 @@ function Navbar() {
     const clickHandler = (item: any) => {
         navigate(item)
         onClose()
-    }
-
-    const [profile, setProfile] = useState(false)
+    } 
 
     return (
         <div className=' w-full flex justify-center h-24 items-center ' >
