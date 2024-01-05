@@ -82,16 +82,11 @@ function Buyrep(props: Props) {
                     <div className="w-full py-4 px-3 bg-violet-100 rounded-[5px] flex-col justify-start items-start gap-7 inline-flex">
                         <div className="justify-start items-center gap-8 inline-flex">
                             <div className="text-neutral-600 text-sm font-bold">Slippage tolerance</div>
-                            {/* <div className="px-6 py-2 bg-white rounded-[5px] justify-center items-center gap-2 flex"> */}
-                                {/* <div className="text-right text-neutral-600 text-sm font-bold">0.5%</div> */}
-                                <Input placeholder='0.5%' bgColor={"white"} width={"200px"} />
-                            {/* </div> */}
+                            <Input placeholder='0.5%' bgColor={"white"} focusBorderColor='white' width={"70px"} />
                         </div>
                         <div className="justify-start items-center gap-8 inline-flex">
                             <div className="text-neutral-600 text-sm font-bold">Tx deadline (mins)</div>
-                            <div className="h-[38px] px-6 py-2 bg-white rounded-[5px] justify-center items-center gap-2 flex">
-                                <div className="text-right text-neutral-600 text-sm font-bold">30</div>
-                            </div>
+                            <Input placeholder='30' bgColor={"white"} focusBorderColor='white' width={"70px"} />
                         </div>
                     </div>
                 )}
