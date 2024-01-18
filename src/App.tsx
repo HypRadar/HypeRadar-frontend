@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { createWeb3Modal } from "@web3modal/ethers/react";
 import Home from "./page/home";
 import Create from "./page/create";
 import ProjectCreation from "./components/project_creation";
@@ -15,10 +16,8 @@ import RepRecieved from "./components/holderinfo_component/rep_recieved";
 import ProjectOwned from "./components/holderinfo_component/project_owned";
 import Project from "./page/project";
 import ProjectComponent from "./components/project_component";
-// import './App.css'
 import { ETHERS_CONFIG, WALLET_CONNECT_ID } from "./constants";
 import { BASE_CHAINS_LIST, CHAIN_ID } from "./constants/network";
-import { createWeb3Modal } from "@web3modal/ethers/react";
 import { Web3ContextProvider } from "./context/Web3Context";
 
 const projectId = WALLET_CONNECT_ID;

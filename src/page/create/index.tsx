@@ -2,11 +2,7 @@ import React from 'react'
 import DashboardLayout from '../../components/shared/dashboard_layout' 
 import { Outlet } from 'react-router-dom'
 
-interface Props { }
-
-function Create(props: Props) {
-    const { } = props
-
+function Create() {
     return (
         <DashboardLayout screen={true} > 
             <div className=' flex w-full justify-center ' > 

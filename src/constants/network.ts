@@ -5,9 +5,8 @@ const RPC_URLS: { [chainId in ChainId]: string } = {
   [ChainId.TESTNET]: "https://data-seed-prebsc-1-s3.binance.org:8545",
 };
 
-
-export const CHAIN_ID = Number(process.env.REACT_APP_PUBLIC_CHAIN_ID) || 97;
-export const RPC_URL: string = (RPC_URLS as Record<number, string>)[CHAIN_ID];
+export const CHAIN_ID = process.env.REACT_APP_PUBLIC_CHAIN_ID || '97';
+export const RPC_URL: string = RPC_URLS[CHAIN_ID];
 
 export const BASE_CHAIN_CONFIG = {
   1: {

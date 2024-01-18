@@ -2,6 +2,7 @@ import { defaultConfig } from "@web3modal/ethers/react";
 import BigNumber from 'bignumber.js';
 import { ChainId } from "../types";
 import { RPC_URL, CHAIN_ID } from "./network";
+import { parseUnits } from "ethers";
 
 export const BIG_TEN = new BigNumber(10)
 
@@ -17,7 +18,7 @@ export const METADATA = {
 export const ETHERS_CONFIG = defaultConfig({
   enableCoinbase: true,
   metadata: METADATA,
-  defaultChainId: CHAIN_ID,
+  defaultChainId: parseInt(CHAIN_ID, 10),
   rpcUrl: RPC_URL,
 });
 
@@ -36,10 +37,15 @@ export const BASE_API_URL = BASE_API_URLS[process.env.NODE_ENV];
 
 export const JWT_KEY = 'JWT-token';
 
-export const BASE_BSC_SCAN_URL = (BASE_BSC_SCAN_URLS as Record<number, string>)[CHAIN_ID];
+export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[CHAIN_ID];
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18);
 export const DEFAULT_GAS_LIMIT = 500000;
+
+export const HUNDRED_IN_BPS = 10000;
+export const BASE_BPS = 100;
 
 export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20;
 
 export const INITIAL_ALLOWED_SLIPPAGE = 50;
+
+export const REP_CREATION_FEE = parseUnits('0.41', 'gwei');

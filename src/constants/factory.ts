@@ -1,6 +1,6 @@
-import { ChainId, Address } from "../types";
+import { Address } from "../types";
 
 export const FACTORY_CONTRACT: Address = {
-    [ChainId.MAINNET]: '',
-    [ChainId.TESTNET]: '0xe36F8DdE8Ea7310B64d4bec077e77Bd1DE329961',
+    56: '',
+    97: '0x9dF73142827eb93aF192E3748377Bc7702De0Fce',
 }
