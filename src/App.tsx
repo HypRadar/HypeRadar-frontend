@@ -4,7 +4,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { createWeb3Modal } from "@web3modal/ethers/react";
+import { SetStateAction, useEffect, useState } from "react";
+import { BrowserProvider, JsonRpcSigner } from "ethers";
+import {
+  createWeb3Modal,
+  useWeb3ModalAccount,
+  useWeb3ModalProvider,
+} from "@web3modal/ethers/react";
 import Home from "./page/home";
 import Create from "./page/create";
 import ProjectCreation from "./components/project_creation";
@@ -30,8 +36,11 @@ createWeb3Modal({
 });
 
 function App() {
+  const { walletProvider } = useWeb3ModalProvider();
+  const { chainId, isConnected } = useWeb3ModalAccount();
+  const [userSigner, setUserSigner] = useState<JsonRpcSigner | null>(null);
+
   const router = createBrowserRouter(
-    // I used the App as the home path to be changed when the homepage is created
     createRoutesFromElements(
       <Route path="/">
         <Route index element={<Home />} />
@@ -49,7 +58,10 @@ function App() {
         <Route path="/project" element={<Project />}>
           <Route index element={<ProjectComponent />} />
         </Route>
-        <Route path="/profileinfo/:address" element={<HolderInfo profile={true} />}>
+        <Route
+          path="/profileinfo/:address"
+          element={<HolderInfo profile={true} />}
+        >
           <Route index element={<RepOwned profile={true} />} />
           <Route path="received" element={<RepRecieved profile={true} />} />
           <Route path="owned" element={<ProjectOwned profile={true} />} />
@@ -63,8 +75,26 @@ function App() {
     )
   );
 
+  const getSigner = async () => {
+    if (walletProvider) {
+      try {
+        const ethersProvider = new BrowserProvider(walletProvider);
+        const signer = await ethersProvider.getSigner();
+        setUserSigner(signer as unknown as SetStateAction<JsonRpcSigner>);
+      } catch (err) {
+        console.log("Error: ", err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isConnected && chainId === parseInt(CHAIN_ID, 10)) {
+      getSigner();
+    }
+  }, [isConnected, chainId]);
+
   return (
-    <Web3ContextProvider>
+    <Web3ContextProvider userSigner={userSigner}>
       <RouterProvider router={router} />
     </Web3ContextProvider>
   );

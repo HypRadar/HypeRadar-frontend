@@ -1,5 +1,5 @@
 import { useContext, createContext, useEffect, useMemo } from "react";
-import { BrowserProvider } from "ethers";
+import { BrowserProvider, JsonRpcSigner } from "ethers";
 import {
   useWeb3ModalAccount,
   useWeb3ModalProvider,
@@ -8,7 +8,6 @@ import { CHAIN_ID } from "../constants/network";
 import { handleJwtClaiming } from "../helpers/user";
 import { JWT_KEY } from "../constants";
 import { decodedJWT } from "../utils";
-import { JsonRpcSigner } from "@ethersproject/providers";
 
 interface Web3ContextType {
   chainId: number | undefined;
@@ -21,25 +20,13 @@ const Web3Context = createContext<null | Web3ContextType>(null);
 
 export const Web3ContextProvider = ({
   children,
+  userSigner
 }: {
   children: JSX.Element;
+  userSigner: JsonRpcSigner
 }) => {
   const { chainId, isConnected, address } = useWeb3ModalAccount();
   const { walletProvider } = useWeb3ModalProvider();
-  let userSigner: JsonRpcSigner;
-
-  const getSigner = async () => {
-    if (walletProvider) {
-      try {
-        const ethersProvider = new BrowserProvider(walletProvider);
-        // @ts-ignore
-        userSigner = await ethersProvider.getSigner();
-        console.log("Hello::::::: ", userSigner);
-      } catch (err) {
-        console.log("Error: ", err);
-      }
-    }
-  };
 
   const switchWalletChain = async () => {
     if (walletProvider) {
@@ -84,20 +71,14 @@ export const Web3ContextProvider = ({
     }
   }, [chainId, isConnected, address]);
 
-  useEffect(() => {
-    if (isConnected && chainId === parseInt(CHAIN_ID, 10)) {
-      getSigner();
-    }
-  }, [chainId, isConnected, address]);
-
   const web3ContextValue = useMemo(
     () => ({
       chainId,
       isConnected: isConnected && chainId === parseInt(CHAIN_ID, 10) ? true : false,
       address: isConnected && chainId === parseInt(CHAIN_ID, 10) ? address : null,
-      userSigner: isConnected && chainId === parseInt(CHAIN_ID, 10) ? userSigner : null
+      userSigner
     }),
-    [chainId, address, isConnected]
+    [chainId, address, isConnected, userSigner]
   );
 
   return (

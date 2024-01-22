@@ -28,7 +28,7 @@ export const BASE_BSC_SCAN_URLS = {
 };
 
 const BASE_API_URLS = {
-  development: "http://127.0.0.1:8000/",
+  development: "http://127.0.0.1:8003/",
   production: "https://api.hyprada.com/",
   test: "http://127.0.0.1:8000/"
 };
@@ -48,4 +48,4 @@ export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20;
 
 export const INITIAL_ALLOWED_SLIPPAGE = 50;
 
-export const REP_CREATION_FEE = parseUnits('0.41', 'gwei');
+export const REP_CREATION_FEE = parseUnits('0.41', 'ether');

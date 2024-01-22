@@ -1,10 +1,7 @@
-import { TransactionResponse, Web3Provider } from "@ethersproject/providers";
-import { useWeb3ModalProvider } from "@web3modal/ethers/react";
-import { BrowserProvider } from "ethers";
+import { TransactionResponse, TransactionReceipt } from "ethers";
 import { useContractCall } from "./";
 import { BASE_BPS, HUNDRED_IN_BPS, REP_CREATION_FEE } from "../../constants";
 import { useREPFactory } from "../useContract";
-import { useWeb3Context } from "../../context/Web3Context";
 
 interface CreateRepProps {
   projectName: string;
@@ -14,19 +11,9 @@ interface CreateRepProps {
 }
 
 export function useCreateRepCallback(): {
-  createRep: (
-    props: CreateRepProps
-  ) => Promise<void>;
+  createRep: (props: CreateRepProps) => Promise<void>;
 } {
   const { contractCall } = useContractCall();
-  const { userSigner } = useWeb3Context();
-
-  // const { walletProvider } = useWeb3ModalProvider();
-  // const ethersProvider = new BrowserProvider(walletProvider);
-  // // @ts-ignore
-  // const b = new Web3Provider(ethersProvider);
-
-  // console.log(b.getSigner());
 
   const repFactoryContract = useREPFactory();
 
@@ -43,18 +30,27 @@ export function useCreateRepCallback(): {
       return;
     }
 
-    const estimatedGas = await repFactoryContract.estimateGas.createRep(
+    const functionName = 'createRep';
+    console.log("Helo ::: ", functionName);
+
+    const estimatedGas = await repFactoryContract['createRep'].estimateGas(
       props.projectName,
       props.projectTicker,
       props.address,
-      projectRoyaltyInBPS
+      projectRoyaltyInBPS,
+      { value: REP_CREATION_FEE }
     );
 
     // eslint-disable-next-line consistent-return
     return contractCall(
       repFactoryContract,
-      "createRep",
-      [props.projectName, props.projectTicker, props.address, projectRoyaltyInBPS],
+      functionName,
+      [
+        props.projectName,
+        props.projectTicker,
+        props.address,
+        projectRoyaltyInBPS,
+      ],
       {
         value: REP_CREATION_FEE,
         gasLimit: estimatedGas,
@@ -62,6 +58,8 @@ export function useCreateRepCallback(): {
     )
       .then((response: TransactionResponse) => {
         console.log("Success: ", response);
+        const receipt = response.wait()
+        console.log("Receipt: ", receipt);
       })
       .catch((error: Error) => {
         console.error("Failed to create rep", error);

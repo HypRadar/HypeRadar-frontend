@@ -1,6 +1,4 @@
-import type { Signer } from '@ethersproject/abstract-signer'
-import type { Provider } from '@ethersproject/providers'
-import { Contract } from '@ethersproject/contracts'
+import { Contract, Provider, Signer } from 'ethers';
 import { simpleRpcProvider } from '../utils/web3'
 import { getAddress } from '../utils/address';
 

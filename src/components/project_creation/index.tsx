@@ -12,7 +12,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { motion } from "framer-motion";
 import InputComponent from "../shared/CustomInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PhotoBtn from "./photoBtn";
 import MediaBtn from "./mediaBtn";
 import { useCreateRepCallback } from "../../helpers/calls/useCreateRepCallback";
@@ -60,11 +60,11 @@ function ProjectCreation() {
 
   console.log(royality);
 
-  const jjj = () => {
-    createRepCallback.createRep({
-      projectName: "MySonThingsBSC100",
-      projectTicker: "MYSONTHINGS100",
-      address: "0x817ADae0639CB731E4c7DE147DB52A648F120c6B",
+  const jjj = async () => {
+    await createRepCallback.createRep({
+      projectName: "MySonThingsBSC100222",
+      projectTicker: "MYSONTHINGS1002112",
+      address: "0x293ee4b57E05d32aC5284744d1Bf1cA4E7d52352",
       projectRoyalty: 20,
     });
   };

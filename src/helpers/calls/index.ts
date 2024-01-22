@@ -1,5 +1,4 @@
-import { TransactionResponse } from '@ethersproject/providers'
-import { Contract, CallOverrides } from '@ethersproject/contracts'
+import { TransactionResponse, Contract } from 'ethers'
 import get from 'lodash/get'
 import { getGasPrice } from '../../utils'
 
@@ -18,7 +17,7 @@ export function useContractCall() {
     contract: Contract,
     methodName: string,
     methodArgs: any[] = [],
-    overrides: CallOverrides = {},
+    overrides = {},
   ): Promise<TransactionResponse> => {
       const contractMethod = get(contract, methodName)
 
