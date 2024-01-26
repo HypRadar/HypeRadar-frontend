@@ -1,46 +1,31 @@
-import {
-  Input,
-  Select,
-  Textarea,
-  Button,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
+import { useState } from "react";
+import { Select, Textarea, Button, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as yup from "yup";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import TextInput from '../form/TextInput';
-import PhotoUploadBtn from '../buttons/PhotoUploadBtn'
-import CoverPhotoBtn from "../buttons/CoverUploadBtn";
+import RoyaltyInput from "../../components/form/RoyaltyInput";
+import TextInput from "../../components/form/TextInput";
+import PhotoUploadBtn from "../../components/buttons/PhotoUploadBtn";
+import CoverPhotoBtn from "../../components/buttons/CoverUploadBtn";
 import { useCreateRepCallback } from "../../helpers/calls/useCreateRepCallback";
+import ConnectWallet from "../../components/buttons/ConnectWallet";
+import { CreateProjectSchema } from "../../schemas";
+import { useWeb3Context } from "../../context/Web3Context";
+import { useCustomToast } from "../../helpers/useToast";
 
-function ProjectCreation() {
+function CreateProject() {
   const createRepCallback = useCreateRepCallback();
-
   const navigate = useNavigate();
-  const schema = yup.object({
-    name: yup.string().required("required"),
-    ticker: yup.string().required("required"),
-    category: yup.string().required("required"),
-    website: yup.string().required("required"),
-    // twitter: yup.string().required('required'),
-    // discord: yup.string().required('required'),
-    // telegram: yup.string().required('required'),
-    // youtube: yup.string().required('required'),
-    // bio: yup.string().required('required'),
-  });
-
+  const { isConnected, address } = useWeb3Context();
+  
   const [tab, setTab] = useState(false);
-
-  const [royality, setRoyality] = useState("");
+  const [pendingTx, setTxStatus] = useState<boolean>(false);
+  const [royalty, setRoyalty] = useState(0);
   const [photoFile, setPhotoFile] = useState("");
-  const [mediaFile, setMediaFile] = useState("");
+  const [bannerFile, setBannerFile] = useState("");
 
-  const toast = useToast();
+  const { txToast, errorToast, successToast } = useCustomToast();
 
-  // formik
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -53,68 +38,51 @@ function ProjectCreation() {
       youtube: "",
       bio: "",
     },
-    validationSchema: schema,
+    validationSchema: CreateProjectSchema,
     onSubmit: () => {},
   });
 
-  console.log(royality);
-
-  const jjj = async () => {
-    await createRepCallback.createRep({
-      projectName: "MySonThingsBSC100222",
-      projectTicker: "MYSONTHINGS1002112",
-      address: "0x293ee4b57E05d32aC5284744d1Bf1cA4E7d52352",
-      projectRoyalty: 20,
-    });
-  };
-
-  const clickHandler = () => {
-    if (window?.location?.pathname?.includes("edit")) {
-      // goto the project profile of edit project
-      navigate("/project");
+  const onContinueHandler = () => {
+    if (!formik.dirty) {
+      errorToast("You have to fill in the form to continue");
+      return;
+    } else if (!formik.isValid) {
+      errorToast("You have to fill in the form to continue");
+      return;
+    } else if (!photoFile) {
+      errorToast("Upload Photo for your project");
+    } else if (!bannerFile) {
+      errorToast("Upload banner Image of your project");
     } else {
-      if (!formik.dirty) {
-        toast({
-          title: "You have to fill in the form to continue",
-          position: "top-right",
-          status: "error",
-          isClosable: true,
-        });
-        return;
-      } else if (!formik.isValid) {
-        toast({
-          title: "You have to fill in the form to continue",
-          position: "top-right",
-          status: "error",
-          isClosable: true,
-        });
-        return;
-      } else if (!photoFile) {
-        toast({
-          title: "Upload Photo",
-          position: "top-right",
-          status: "error",
-          isClosable: true,
-        });
-      } else if (!mediaFile) {
-        toast({
-          title: "Upload Media Image",
-          position: "top-right",
-          status: "error",
-          isClosable: true,
-        });
-      } else {
-        setTab(true);
-      }
+      setTab(true);
     }
   };
 
-  const submit = () => {
-    // if (window?.location?.pathname?.includes("edit")) {
-    //   // goto the project profile of create project
-    //   navigate("/project");
-    // }
-    console.log("Hello fool: ", formik.values);
+  const submit = async () => {
+    if (!royalty || !formik.values.name || !formik.values.ticker) {
+      errorToast("Could not verify project details. Reload and try again.");
+      return;
+    }
+    setTxStatus(true);
+    try {
+      const tx = await createRepCallback.createRep({
+        projectName: formik.values.name,
+        projectTicker: formik.values.ticker.toUpperCase(),
+        address: address,
+        projectRoyalty: royalty,
+      });
+      successToast("Project created. Pending confirmation...");
+
+      const receipt = await tx.wait();
+
+      txToast(receipt.hash);
+
+      setTxStatus(false);
+
+      console.log("payload:: ", { ...formik.values, royalty, address, txhash: receipt.hash });
+    } catch (err) {
+      setTxStatus(false);
+    }
   };
 
   return (
@@ -122,7 +90,10 @@ function ProjectCreation() {
       {!tab && (
         <div className=" lg:max-w-7xl w-full flex flex-col px-4 lg:px-8 gap-6 ">
           <div className=" bg-white w-full rounded-[10px] py-9 px-4 lg:py-[56px] lg:px-[80px] gap-5 flex lg:flex-row flex-col ">
-            <PhotoUploadBtn currentImagePath={photoFile} onFileChangeHandler={setPhotoFile} />
+            <PhotoUploadBtn
+              currentImagePath={photoFile}
+              onFileChangeHandler={setPhotoFile}
+            />
             <div className=" w-full flex flex-col gap-6 ">
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">
@@ -134,29 +105,10 @@ function ProjectCreation() {
                   onFocus={() => formik.setFieldTouched("name", true, true)}
                   touch={formik.touched.name}
                   error={formik.errors.name}
-                  cursor={
-                    window?.location?.pathname?.includes("edit")
-                      ? "not-allowed"
-                      : "auto"
-                  }
                   type="text"
                   placeholder="Email"
                 />
               </div>
-              {window?.location?.pathname?.includes("edit") && (
-                <div className=" w-full flex flex-col gap-2  ">
-                  <p className=" text-[#4D4D4D] ">
-                    <span className=" text-[#D20000] ">*</span> Project royality
-                  </p>
-                  <Input
-                    onChange={(e) => setRoyality(e.target.value)}
-                    placeholder="10%"
-                    fontSize={["sm", "medium"]}
-                    height={["38px", "54px"]}
-                    bgColor={"#EBEDF2"}
-                  />
-                </div>
-              )}
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">
                   <span className=" text-[#D20000] ">*</span> Project ticker
@@ -169,16 +121,7 @@ function ProjectCreation() {
                   error={formik.errors.ticker}
                   type="text"
                   placeholder="e.g BTC"
-                  disabled={
-                    window?.location?.pathname?.includes("edit") ? true : false
-                  }
-                  cursor={
-                    window?.location?.pathname?.includes("edit")
-                      ? "not-allowed"
-                      : "auto"
-                  }
                 />
-                {/* <Input  placeholder='e.g BTC' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">
@@ -233,7 +176,6 @@ function ProjectCreation() {
                   type="text"
                   placeholder="https://"
                 />
-                {/* <Input placeholder='https://' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">Twitter url</p>
@@ -246,7 +188,6 @@ function ProjectCreation() {
                   type="text"
                   placeholder="https://"
                 />
-                {/* <Input placeholder='https://' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">Discord url</p>
@@ -259,7 +200,6 @@ function ProjectCreation() {
                   type="text"
                   placeholder="https://"
                 />
-                {/* <Input placeholder='https://' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">Telegram url</p>
@@ -272,7 +212,6 @@ function ProjectCreation() {
                   type="text"
                   placeholder="https://"
                 />
-                {/* <Input placeholder='https://' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
               <div className=" w-full flex flex-col gap-2  ">
                 <p className=" text-[#4D4D4D] ">Youtube video</p>
@@ -285,7 +224,6 @@ function ProjectCreation() {
                   type="text"
                   placeholder="https://"
                 />
-                {/* <Input placeholder='https://' fontSize={["sm", "medium"]} height={["38px", "54px"]} bgColor={"#EBEDF2"} /> */}
               </div>
             </div>
           </div>
@@ -299,18 +237,43 @@ function ProjectCreation() {
                 height={["250px", "500px"]}
                 borderColor={"#EBEDF2"}
               />
-              {/* {formik.touched.bio && formik.errors.bio && (
-                                <Text as={motion.p}
-                                    initial={{ y: -100, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }} color="#E84545" fontWeight="600" fontSize="xs" mt="-6px" textAlign="left" >{formik.errors.bio}</Text>
-                            )} */}
             </div>
-            <CoverPhotoBtn currentImagePath={mediaFile} onFileChangeHandler={setMediaFile}/>
+            <CoverPhotoBtn
+              currentImagePath={bannerFile}
+              onFileChangeHandler={setBannerFile}
+            />
           </div>
           <div className=" w-full">
-            <Button py={3} onClick={() => clickHandler()} rounded={"30px"} width={"full"} bgColor={"#5404FF"} color={"white"} _hover={{ backgroundColor: "#5404FF" }} fontSize={["sm", "medium"]} paddingY={"3"} >
-                            Continue
-                        </Button>
+            {!isConnected ? (
+              <ConnectWallet>
+                <Button
+                  py={3}
+                  rounded={"30px"}
+                  width={"full"}
+                  bgColor={"#5404FF"}
+                  color={"white"}
+                  _hover={{ backgroundColor: "#5404FF" }}
+                  fontSize={["sm", "medium"]}
+                  paddingY={"3"}
+                >
+                  Continue
+                </Button>
+              </ConnectWallet>
+            ) : (
+              <Button
+                py={3}
+                onClick={() => onContinueHandler()}
+                rounded={"30px"}
+                width={"full"}
+                bgColor={"#5404FF"}
+                color={"white"}
+                _hover={{ backgroundColor: "#5404FF" }}
+                fontSize={["sm", "medium"]}
+                paddingY={"3"}
+              >
+                Continue
+              </Button>
+            )}
           </div>
         </div>
       )}
@@ -345,27 +308,38 @@ function ProjectCreation() {
             </div>
             <div className=" w-full flex flex-col gap-2  ">
               <p className=" text-[#4D4D4D] ">
-                <span className=" text-[#D20000] ">*</span> Project royality
+                <span className=" text-[#D20000] ">*</span> Project royalty
               </p>
-              <Input
-                onChange={(e) => setRoyality(e.target.value)}
-                placeholder="10%"
-                height={"54px"}
-                bgColor={"#EBEDF2"}
-              />
+              <RoyaltyInput royaltyInputHandler={setRoyalty} />
             </div>
           </div>
-          <Button
-            onClick={() => submit()}
-            mt={"4"}
-            rounded={"30px"}
-            bgColor={"#5404FF"}
-            color={"white"}
-            _hover={{ backgroundColor: "#5404FF" }}
-            py={"4"}
-          >
-            Create Project
-          </Button>
+          {!isConnected ? (
+            <ConnectWallet>
+              <Button
+                mt={"4"}
+                rounded={"30px"}
+                bgColor={"#5404FF"}
+                color={"white"}
+                _hover={{ backgroundColor: "#5404FF" }}
+                py={"4"}
+              >
+                Create Project
+              </Button>
+            </ConnectWallet>
+          ) : (
+            <Button
+              onClick={() => submit()}
+              mt={"4"}
+              rounded={"30px"}
+              bgColor={"#5404FF"}
+              color={"white"}
+              _hover={{ backgroundColor: "#5404FF" }}
+              py={"4"}
+              disabled={pendingTx}
+            >
+              Create Project
+            </Button>
+          )}
           <div className="w-fit mx-auto h-[22px] justify-center items-start gap-4 inline-flex">
             <div className="text-slate-900 text-base font-normal  border-slate-900 border-r pr-4 ">
               Project creation fee
@@ -380,4 +354,4 @@ function ProjectCreation() {
   );
 }
 
-export default ProjectCreation;
+export default CreateProject;

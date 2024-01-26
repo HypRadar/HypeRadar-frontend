@@ -1,8 +1,8 @@
 import { BrowserProvider, Eip1193Provider } from "ethers";
 
 import { signingMessage } from "../utils";
-import { httpPostRequest } from './http';
-import { BASE_API_URL, JWT_KEY } from "../constants";
+import Http from './http';
+import { JWT_KEY } from "../constants";
 
 export const onSignMessage = async (
   walletProvider: Eip1193Provider | undefined
@@ -30,7 +30,7 @@ const fetchWithJwtClaiming = async (
   url: string
 ) => {
   try {
-    const result = await httpPostRequest(url, payload);
+    const result = await new Http().post(url, payload);
     return result["access_token"];
   } catch (error) {
     console.error("Error in fetchWithJwtClaiming:", error);
@@ -51,7 +51,7 @@ export const handleJwtClaiming = async (
     address: address ?? "",
   };
 
-  const apiUrl = `${BASE_API_URL}users/login`;
+  const apiUrl = `/users/login`;
   const jwtToken = await fetchWithJwtClaiming(payload, apiUrl);
   localStorage.setItem(JWT_KEY, jwtToken);
 };

@@ -33,6 +33,12 @@ const BASE_API_URLS = {
   test: "http://127.0.0.1:8000/"
 };
 
+export const HTTP_STATUS_CODES = {
+  UNAUTHORIZED: 401,
+  BAD_REQUEST: 400,
+  OK: 200,
+}
+
 export const BASE_API_URL = BASE_API_URLS[process.env.NODE_ENV];
 
 export const JWT_KEY = 'JWT-token';

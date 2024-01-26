@@ -14,13 +14,13 @@ import {
 import Home from "./page/home";
 import Create from "./page/create";
 import ProjectCreation from "./components/project_creation";
-import Royality from "./components/project_creation/royality";
 import HolderComponent from "./components/holder_component";
 import RepOwned from "./components/holderinfo_component/rep_owned";
 import HolderInfo from "./page/holder_info";
 import RepRecieved from "./components/holderinfo_component/rep_recieved";
 import ProjectOwned from "./components/holderinfo_component/project_owned";
 import Project from "./page/project";
+import CreateProject from "./page/projects/CreateProject";
 import ProjectComponent from "./components/project_component";
 import { ETHERS_CONFIG, WALLET_CONNECT_ID } from "./constants";
 import { BASE_CHAINS_LIST, CHAIN_ID } from "./constants/network";
@@ -46,8 +46,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/gainer" element={<Home gainer={true} />} />
         <Route path="/create" element={<Create />}>
-          <Route index element={<ProjectCreation />} />
-          <Route path="royality" element={<Royality />} />
+          <Route index element={<CreateProject />} />
         </Route>
         <Route path="/edit" element={<Create />}>
           <Route index element={<ProjectCreation />} />
