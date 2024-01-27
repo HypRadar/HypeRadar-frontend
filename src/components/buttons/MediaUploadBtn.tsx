@@ -30,7 +30,7 @@ const MediaUploadBtn = (props: Props) => {
           className={props.photoClass}
         />
       )}
-      <input className=" hidden " onChange={handleImage} type="file" />
+      <input className="hidden" accept="image/*" onChange={handleImage} type="file" />
       <PhotoIcon iconContainerClass={props.iconContainerClass} />
     </label>
   );

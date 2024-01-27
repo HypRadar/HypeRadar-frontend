@@ -26,7 +26,7 @@ class Http {
     this.client.interceptors.response.use(
       (response) => response.data,
       (error) => {
-        throw new Error(returnHttpError(error));
+        throw returnHttpError(error);
       }
     );
   }
@@ -81,6 +81,12 @@ export function returnHttpError(err: AxiosError) {
       if (typeof errorMsg !== "string") {
         errorMsg = errorMsg[0];
       }
+    } else if (err.response.status === HTTP_STATUS_CODES.UNAUTHORIZED) {
+      errorMsg = "Request failed! Please try again";
+      localStorage.removeItem(JWT_KEY);
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } else {
       errorMsg = "Request failed! Please try again";
     }

@@ -12,6 +12,7 @@ import ConnectWallet from "../../components/buttons/ConnectWallet";
 import { CreateProjectSchema } from "../../schemas";
 import { useWeb3Context } from "../../context/Web3Context";
 import { useCustomToast } from "../../helpers/useToast";
+import Http from "../../helpers/http";
 
 function CreateProject() {
   const createRepCallback = useCreateRepCallback();
@@ -21,8 +22,8 @@ function CreateProject() {
   const [tab, setTab] = useState(false);
   const [pendingTx, setTxStatus] = useState<boolean>(false);
   const [royalty, setRoyalty] = useState(0);
-  const [photoFile, setPhotoFile] = useState("");
-  const [bannerFile, setBannerFile] = useState("");
+  const [photoFile, setPhotoFile] = useState(null);
+  const [bannerFile, setBannerFile] = useState(null);
 
   const { txToast, errorToast, successToast } = useCustomToast();
 
@@ -74,13 +75,31 @@ function CreateProject() {
       successToast("Project created. Pending confirmation...");
 
       const receipt = await tx.wait();
+      
+      const formData = new FormData();
+      formData.append('name', formik.values.name);
+      formData.append('image', photoFile);
+      formData.append('ticker', formik.values.ticker);
+      formData.append('category', formik.values.category);
+      formData.append('website', formik.values.website);
+      formData.append('twitter_url', formik.values.twitter);
+      formData.append('discord_url', formik.values.discord);
+      formData.append('telegram_url', formik.values.telegram);
+      formData.append('youtube_url', formik.values.youtube);
+      formData.append('bio', formik.values.bio);
+      formData.append('cover_image', bannerFile);
+      formData.append('royalty', royalty.toString());
+      formData.append('txhash', receipt.hash);
+      
+      const url = '/projects/create';
+      const response = await new Http().post(url, formData);
 
       txToast(receipt.hash);
-
       setTxStatus(false);
 
-      console.log("payload:: ", { ...formik.values, royalty, address, txhash: receipt.hash });
-    } catch (err) {
+      navigate(`/project/${response['address']}`);
+    } catch (err: any) {
+      errorToast(err)
       setTxStatus(false);
     }
   };
@@ -256,7 +275,7 @@ function CreateProject() {
                   fontSize={["sm", "medium"]}
                   paddingY={"3"}
                 >
-                  Continue
+                  Connect Wallet
                 </Button>
               </ConnectWallet>
             ) : (
@@ -323,7 +342,7 @@ function CreateProject() {
                 _hover={{ backgroundColor: "#5404FF" }}
                 py={"4"}
               >
-                Create Project
+                Connect Wallet
               </Button>
             </ConnectWallet>
           ) : (
@@ -335,9 +354,10 @@ function CreateProject() {
               color={"white"}
               _hover={{ backgroundColor: "#5404FF" }}
               py={"4"}
-              disabled={pendingTx}
+              isDisabled={pendingTx}
+              isLoading={pendingTx}
             >
-              Create Project
+              {pendingTx ? "Confirming..." : "Create Project"}
             </Button>
           )}
           <div className="w-fit mx-auto h-[22px] justify-center items-start gap-4 inline-flex">

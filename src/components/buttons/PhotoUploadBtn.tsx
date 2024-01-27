@@ -10,7 +10,7 @@ function PhotoUploadBtn(props: Props) {
   const { onFileChangeHandler, currentImagePath } = props;
 
   return (
-    <div className=' w-fit ' >
+    <div className='w-fit' >
         <MediaUploadBtn
           currentImagePath={currentImagePath}
           btnWrapperClass="w-[120px] h-[120px] relative lg:w-[300px] lg:h-[300px] bg-slate-200 rounded-[500px] justify-center shadow-md items-center flex"

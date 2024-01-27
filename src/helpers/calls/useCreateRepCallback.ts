@@ -1,4 +1,4 @@
-import { TransactionResponse } from "ethers";
+import { TransactionResponse, Log } from "ethers";
 import { useContractCall } from "./";
 import { BASE_BPS, HUNDRED_IN_BPS, REP_CREATION_FEE } from "../../constants";
 import { useREPFactory } from "../useContract";
@@ -17,7 +17,9 @@ export function useCreateRepCallback(): {
 
   const repFactoryContract = useREPFactory();
 
-  const createRep = async (props: CreateRepProps): Promise<TransactionResponse> => {
+  const createRep = async (
+    props: CreateRepProps
+  ): Promise<TransactionResponse> => {
     const projectRoyaltyInBPS = props.projectRoyalty * BASE_BPS;
 
     if (projectRoyaltyInBPS > HUNDRED_IN_BPS) {
@@ -30,38 +32,47 @@ export function useCreateRepCallback(): {
       return;
     }
 
-    const functionName = 'createRep';
+    const functionName = "createRep";
 
-    const estimatedGas = await repFactoryContract['createRep'].estimateGas(
-      props.projectName,
-      props.projectTicker,
-      props.address,
-      projectRoyaltyInBPS,
-      { value: REP_CREATION_FEE }
-    );
-
-    // eslint-disable-next-line consistent-return
-    return contractCall(
-      repFactoryContract,
-      functionName,
-      [
+    try {
+      const estimatedGas = await repFactoryContract["createRep"].estimateGas(
         props.projectName,
         props.projectTicker,
         props.address,
         projectRoyaltyInBPS,
-      ],
-      {
-        value: REP_CREATION_FEE,
-        gasLimit: estimatedGas,
+        { value: REP_CREATION_FEE }
+      );
+
+      const response = await contractCall(
+        repFactoryContract,
+        functionName,
+        [
+          props.projectName,
+          props.projectTicker,
+          props.address,
+          projectRoyaltyInBPS,
+        ],
+        {
+          value: REP_CREATION_FEE,
+          gasLimit: estimatedGas,
+        }
+      );
+
+      return response;
+    } catch (error: any) {
+      console.error("Failed to create rep", error);
+
+      if (error.reason) {
+        throw error.reason;
       }
-    )
-      .then((response: TransactionResponse) => {
-        return response;
-      })
-      .catch((error: Error) => {
-        console.error("Failed to create rep", error);
-        throw error;
-      });
+
+      if (error.code && error.code === "CALL_EXCEPTION") {
+        // eslint-disable-next-line no-throw-literal
+        throw "Please verify you have enough funds to cover gas and transaction fee and try again";
+      }
+
+      throw error;
+    }
   };
 
   return { createRep };
