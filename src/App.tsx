@@ -12,7 +12,9 @@ import {
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 import Home from "./page/home";
+import Error404 from "./components/misc/Error404";
 import Create from "./page/create";
+import Details from "./page/projects/Detail";
 import ProjectCreation from "./components/project_creation";
 import HolderComponent from "./components/holder_component";
 import RepOwned from "./components/holderinfo_component/rep_owned";
@@ -25,6 +27,7 @@ import ProjectComponent from "./components/project_component";
 import { ETHERS_CONFIG, WALLET_CONNECT_ID } from "./constants";
 import { BASE_CHAINS_LIST, CHAIN_ID } from "./constants/network";
 import { Web3ContextProvider } from "./context/Web3Context";
+import { MiscContextProvider } from "./context/MiscContextProvider";
 
 const projectId = WALLET_CONNECT_ID;
 
@@ -45,6 +48,7 @@ function App() {
       <Route path="/">
         <Route index element={<Home />} />
         <Route path="/gainer" element={<Home gainer={true} />} />
+        <Route path="/projects/:address" element={<Details />} />
         <Route path="/create" element={<Create />}>
           <Route index element={<CreateProject />} />
         </Route>
@@ -70,6 +74,7 @@ function App() {
           <Route path="received" element={<RepRecieved />} />
           <Route path="owned" element={<ProjectOwned />} />
         </Route>
+        <Route path="*" element={<Error404 />} />
       </Route>
     )
   );
@@ -94,7 +99,9 @@ function App() {
 
   return (
     <Web3ContextProvider userSigner={userSigner}>
-      <RouterProvider router={router} />
+      <MiscContextProvider>
+        <RouterProvider router={router} />
+      </MiscContextProvider>
     </Web3ContextProvider>
   );
 }

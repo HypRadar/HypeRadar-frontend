@@ -55,3 +55,4 @@ export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20;
 export const INITIAL_ALLOWED_SLIPPAGE = 50;
 
 export const REP_CREATION_FEE = parseUnits('0.41', 'ether');
+export const COIN_SLOPE = new BigNumber(0.003);

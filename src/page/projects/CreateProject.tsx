@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import RoyaltyInput from "../../components/form/RoyaltyInput";
 import TextInput from "../../components/form/TextInput";
 import PhotoUploadBtn from "../../components/buttons/PhotoUploadBtn";
-import CoverPhotoBtn from "../../components/buttons/CoverUploadBtn";
 import { useCreateRepCallback } from "../../helpers/calls/useCreateRepCallback";
 import ConnectWallet from "../../components/buttons/ConnectWallet";
 import { CreateProjectSchema } from "../../schemas";
@@ -23,7 +22,6 @@ function CreateProject() {
   const [pendingTx, setTxStatus] = useState<boolean>(false);
   const [royalty, setRoyalty] = useState(0);
   const [photoFile, setPhotoFile] = useState(null);
-  const [bannerFile, setBannerFile] = useState(null);
 
   const { txToast, errorToast, successToast } = useCustomToast();
 
@@ -52,8 +50,6 @@ function CreateProject() {
       return;
     } else if (!photoFile) {
       errorToast("Upload Photo for your project");
-    } else if (!bannerFile) {
-      errorToast("Upload banner Image of your project");
     } else {
       setTab(true);
     }
@@ -87,7 +83,6 @@ function CreateProject() {
       formData.append('telegram_url', formik.values.telegram);
       formData.append('youtube_url', formik.values.youtube);
       formData.append('bio', formik.values.bio);
-      formData.append('cover_image', bannerFile);
       formData.append('royalty', royalty.toString());
       formData.append('txhash', receipt.hash);
       
@@ -97,7 +92,7 @@ function CreateProject() {
       txToast(receipt.hash);
       setTxStatus(false);
 
-      navigate(`/project/${response['address']}`);
+      navigate(`/projects/${response['address']}`);
     } catch (err: any) {
       errorToast(err)
       setTxStatus(false);
@@ -233,7 +228,7 @@ function CreateProject() {
                 />
               </div>
               <div className=" w-full flex flex-col gap-2  ">
-                <p className=" text-[#4D4D4D] ">Youtube video</p>
+                <p className=" text-[#4D4D4D] ">Youtube video(Embedded Link)</p>
                 <TextInput
                   name="youtube"
                   onChange={formik.handleChange}
@@ -257,10 +252,7 @@ function CreateProject() {
                 borderColor={"#EBEDF2"}
               />
             </div>
-            <CoverPhotoBtn
-              currentImagePath={bannerFile}
-              onFileChangeHandler={setBannerFile}
-            />
+            
           </div>
           <div className=" w-full">
             {!isConnected ? (

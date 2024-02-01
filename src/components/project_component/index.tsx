@@ -2,7 +2,7 @@
 import { Button } from '@chakra-ui/react'
 import CopyComponent from '../shared/copy_component'
 import BuyRepBtn from './buy_rep_btn'
-import SellRepBtn from './sell_rep_btn '
+import SellRepBtn from './sell_rep_btn'
 import { useNavigate } from 'react-router-dom'
 
 function ProjectComponent() {
