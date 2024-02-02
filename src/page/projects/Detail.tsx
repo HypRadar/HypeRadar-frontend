@@ -1,6 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import Error404 from "../../components/misc/Error404";
 import DashboardLayout from "../../components/shared/dashboard_layout";
 import { isAddress } from "../../utils/address";
@@ -16,6 +25,7 @@ const Details = () => {
   const { isLoading, project, loadProject, loadOnChainData } = useLoadProject();
   let { address }: Record<string, any> = useParams();
   const { bnbPrice } = useMiscContext();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     loadProject(address);
@@ -29,10 +39,6 @@ const Details = () => {
   if (!isAddress(address)) {
     return <Error404 />;
   }
-
-  const clickHandler = () => {
-    navigate("/edit");
-  };
 
   if (isLoading || !project) {
     return <PageLoader />;
@@ -54,14 +60,39 @@ const Details = () => {
               </div>
             </div>
           </div>
-          <div className=" h-fit ">
-            <div className=" bg-slate-400 h-[356px] lg:h-[569px] w-full rounded-[10px] items-center p-9 gap-6 flex "></div>
-          </div>
+          {project.youtubeUrl ? (
+            <div className=" h-fit ">
+              <div className=" bg-slate-400 h-[356px] lg:h-[569px] w-full rounded-[10px] items-center p-9 gap-6 flex ">
+                <Modal isOpen={isOpen} onClose={onClose} size="xl">
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader></ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                      <iframe
+                        className="yt-video-scale"
+                        src={project.youtubeUrl}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </ModalBody>
+                  </ModalContent>
+                </Modal>
+                <button
+                  className="rbt-btn rounded-player-2 sm-size position-to-top with-animation"
+                  onClick={onOpen}
+                >
+                  <span className="play-icon"></span>
+                </button>
+              </div>
+            </div>
+          ) : null}
 
           {project.owner === userAddress ? (
             <Button
               py={3}
-              onClick={() => clickHandler()}
+              onClick={() => navigate(`/edit/${project.address}`)}
               rounded={"30px"}
               width={"full"}
               bgColor={"#5404FF"}
