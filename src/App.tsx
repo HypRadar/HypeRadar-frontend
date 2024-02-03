@@ -46,11 +46,11 @@ function App() {
     createRoutesFromElements(
       <Route path="/">
         <Route index element={<Home />} />
-        <Route path="/projects/:address" element={<Details />} />
         <Route path="/create" element={<LayoutWrapper />}>
           <Route index element={<CreateProject />} />
         </Route>
-        <Route path="/edit/:address" element={<LayoutWrapper />}>
+        <Route path="/projects/:address" element={<Details />} />
+        <Route path="/projects/edit/:address" element={<LayoutWrapper />}>
           <Route index element={<EditProject />} />
         </Route>
         <Route path="/gainer" element={<Home gainer={true} />} />

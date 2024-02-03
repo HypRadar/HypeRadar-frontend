@@ -92,7 +92,7 @@ const Details = () => {
           {project.owner === userAddress ? (
             <Button
               py={3}
-              onClick={() => navigate(`/edit/${project.address}`)}
+              onClick={() => navigate(`/projects/edit/${project.address}`)}
               rounded={"30px"}
               width={"full"}
               bgColor={"#5404FF"}
