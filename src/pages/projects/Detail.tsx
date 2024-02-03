@@ -11,13 +11,13 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Error404 from "../../components/misc/Error404";
-import DashboardLayout from "../../components/shared/dashboard_layout";
 import { isAddress } from "../../utils/address";
 import { useLoadProject } from "../../helpers/loadProject";
 import PageLoader from "../../components/misc/PageLoader";
 import ProjectCardHeader from "../../components/projects/ProjectCardHeader";
 import { useWeb3Context } from "../../context/Web3Context";
 import { useMiscContext } from "../../context/MiscContextProvider";
+import DashboardLayout from "../../components/layouts/Dashboard";
 
 const Details = () => {
   const navigate = useNavigate();

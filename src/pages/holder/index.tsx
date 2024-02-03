@@ -1,6 +1,6 @@
 import React from 'react'
-import DashboardLayout from '../../components/shared/dashboard_layout'
 import { Outlet } from 'react-router-dom'
+import DashboardLayout from '../../components/layouts/Dashboard'
 
 interface Props {}
 

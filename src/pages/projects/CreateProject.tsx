@@ -17,7 +17,7 @@ function CreateProject() {
   const createRepCallback = useCreateRepCallback();
   const navigate = useNavigate();
   const { isConnected, address } = useWeb3Context();
-  
+
   const [tab, setTab] = useState(false);
   const [pendingTx, setTxStatus] = useState<boolean>(false);
   const [royalty, setRoyalty] = useState(0);
@@ -50,6 +50,7 @@ function CreateProject() {
       return;
     } else if (!photoFile) {
       errorToast("Upload Photo for your project");
+      return;
     } else {
       setTab(true);
     }
@@ -71,30 +72,30 @@ function CreateProject() {
       successToast("Project created. Pending confirmation...");
 
       const receipt = await tx.wait();
-      
+
       const formData = new FormData();
-      formData.append('name', formik.values.name);
-      formData.append('image', photoFile);
-      formData.append('ticker', formik.values.ticker);
-      formData.append('category', formik.values.category);
-      formData.append('website', formik.values.website);
-      formData.append('twitter_url', formik.values.twitter);
-      formData.append('discord_url', formik.values.discord);
-      formData.append('telegram_url', formik.values.telegram);
-      formData.append('youtube_url', formik.values.youtube);
-      formData.append('bio', formik.values.bio);
-      formData.append('royalty', royalty.toString());
-      formData.append('txhash', receipt.hash);
-      
-      const url = '/projects/create';
+      formData.append("name", formik.values.name);
+      formData.append("image", photoFile);
+      formData.append("ticker", formik.values.ticker);
+      formData.append("category", formik.values.category);
+      formData.append("website", formik.values.website);
+      formData.append("twitter_url", formik.values.twitter);
+      formData.append("discord_url", formik.values.discord);
+      formData.append("telegram_url", formik.values.telegram);
+      formData.append("youtube_url", formik.values.youtube);
+      formData.append("bio", formik.values.bio);
+      formData.append("royalty", royalty.toString());
+      formData.append("txhash", receipt.hash);
+
+      const url = "/projects/create";
       const response = await new Http().post(url, formData);
 
       txToast(receipt.hash);
       setTxStatus(false);
 
-      navigate(`/projects/${response['address']}`);
+      navigate(`/projects/${response["address"]}`);
     } catch (err: any) {
-      errorToast(err)
+      errorToast(err);
       setTxStatus(false);
     }
   };
@@ -252,7 +253,6 @@ function CreateProject() {
                 borderColor={"#EBEDF2"}
               />
             </div>
-            
           </div>
           <div className=" w-full">
             {!isConnected ? (

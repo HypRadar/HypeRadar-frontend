@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
-import DashboardLayout from '../../components/shared/dashboard_layout' 
 import TabController from '../../components/holderinfo_component/tab_controller'
 import HolderInfoComponent from '../../components/holderinfo_component'
 import {isAddress} from '../../utils/address';
+import DashboardLayout from '../../components/layouts/Dashboard';
 
 interface Props { 
     profile?: boolean

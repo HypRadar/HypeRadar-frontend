@@ -3,7 +3,7 @@
 import SideBar from "../../components/home_component/SideBar"
 import FilterBar from "../../components/home_component/filter_bar"
 import ProductCard from "../../components/home_component/product_card"
-import DashboardLayout from "../../components/shared/dashboard_layout" 
+import DashboardLayout from "../../components/layouts/Dashboard"
 
 interface Props {
     gainer?: boolean

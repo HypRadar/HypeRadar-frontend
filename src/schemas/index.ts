@@ -7,4 +7,7 @@ export const CreateProjectSchema = yup.object({
   website: yup.string().required("required"),
 });
 
-export const EditProjectSchema = yup.object({});
+export const EditProjectSchema = yup.object({
+  category: yup.string().required("required"),
+  website: yup.string().required("required"),
+});

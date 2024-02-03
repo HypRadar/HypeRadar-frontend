@@ -11,8 +11,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import ConnectWallet from "../../buttons/ConnectWallet";
-import { useWeb3Context } from "../../../context/Web3Context";
+import ConnectWallet from "../buttons/ConnectWallet";
+import { useWeb3Context } from "../../context/Web3Context";
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -116,7 +116,7 @@ function Navbar() {
           )}
           {web3Context.isConnected && (
             <Button
-              onClick={() => navigate(`/profileinfo/${web3Context.address}`)}
+              onClick={() => navigate(`/profile/${web3Context.address}`)}
               px={"8"}
               fontWeight={"bold"}
               display={["none", "none", "flex"]}
@@ -218,7 +218,7 @@ function Navbar() {
                 <div
                   role="button"
                   onClick={() =>
-                    clickHandler(`/profileinfo/${web3Context.address}`)
+                    clickHandler(`/profile/${web3Context.address}`)
                   }
                   className=" flex items-center w-full py-3 justify-end gap-4 "
                 >
