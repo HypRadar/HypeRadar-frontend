@@ -15,7 +15,6 @@ import Home from "./pages/home";
 import Error404 from "./components/misc/Error404";
 import LayoutWrapper from "./components/layouts/LayoutWrapper";
 import Details from "./pages/projects/Detail";
-import ProjectCreation from "./components/project_creation";
 import HolderComponent from "./components/holder_component";
 import RepOwned from "./components/holderinfo_component/rep_owned";
 import HolderInfo from "./pages/holder_info";
@@ -27,6 +26,7 @@ import { BASE_CHAINS_LIST, CHAIN_ID } from "./constants/network";
 import { Web3ContextProvider } from "./context/Web3Context";
 import { MiscContextProvider } from "./context/MiscContextProvider";
 import EditProject from "./pages/projects/EditProject";
+import EditRoyalty from "./pages/projects/EditRoyalty";
 
 const projectId = WALLET_CONNECT_ID;
 
@@ -52,6 +52,9 @@ function App() {
         <Route path="/projects/:address" element={<Details />} />
         <Route path="/projects/edit/:address" element={<LayoutWrapper />}>
           <Route index element={<EditProject />} />
+        </Route>
+        <Route path="/projects/edit-royalty/:address" element={<LayoutWrapper />}>
+          <Route index element={<EditRoyalty />} />
         </Route>
         <Route path="/gainer" element={<Home gainer={true} />} />
         <Route path="/holder" element={<LayoutWrapper />}>

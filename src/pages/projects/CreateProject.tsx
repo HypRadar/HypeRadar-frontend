@@ -12,6 +12,7 @@ import { CreateProjectSchema } from "../../schemas";
 import { useWeb3Context } from "../../context/Web3Context";
 import { useCustomToast } from "../../helpers/useToast";
 import Http from "../../helpers/http";
+import { BASE_BPS } from "../../constants";
 
 function CreateProject() {
   const createRepCallback = useCreateRepCallback();
@@ -73,6 +74,8 @@ function CreateProject() {
 
       const receipt = await tx.wait();
 
+      const projectRoyaltyInBPS = royalty * BASE_BPS;
+
       const formData = new FormData();
       formData.append("name", formik.values.name);
       formData.append("image", photoFile);
@@ -84,7 +87,7 @@ function CreateProject() {
       formData.append("telegram_url", formik.values.telegram);
       formData.append("youtube_url", formik.values.youtube);
       formData.append("bio", formik.values.bio);
-      formData.append("royalty", royalty.toString());
+      formData.append("royalty", projectRoyaltyInBPS.toString());
       formData.append("txhash", receipt.hash);
 
       const url = "/projects/create";
@@ -121,7 +124,7 @@ function CreateProject() {
                   touch={formik.touched.name}
                   error={formik.errors.name}
                   type="text"
-                  placeholder="Email"
+                  placeholder="Project Name"
                 />
               </div>
               <div className=" w-full flex flex-col gap-2  ">

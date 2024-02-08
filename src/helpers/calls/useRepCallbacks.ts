@@ -1,24 +1,23 @@
 import { TransactionResponse } from "ethers";
 import { useContractCall } from "./";
-import { BASE_BPS, HUNDRED_IN_BPS, REP_CREATION_FEE } from "../../constants";
-import { useREPFactory } from "../useContract";
+import { BASE_BPS, HUNDRED_IN_BPS } from "../../constants";
+import { useERC20 } from "../useContract";
 
-interface CreateRepProps {
-  projectName: string;
-  projectTicker: string;
-  address: string;
+interface UpdateRoyaltyProps {
   projectRoyalty: number;
 }
 
-export function useCreateRepCallback(): {
-  createRep: (props: CreateRepProps) => Promise<TransactionResponse>;
+export function useRepCallbacks(projectAddress: string): {
+  updateProjectRoyalty: (
+    props: UpdateRoyaltyProps
+  ) => Promise<TransactionResponse>;
 } {
   const { contractCall } = useContractCall();
 
-  const repFactoryContract = useREPFactory();
+  const repERC20Contract = useERC20(projectAddress);
 
-  const createRep = async (
-    props: CreateRepProps
+  const updateProjectRoyalty = async (
+    props: UpdateRoyaltyProps
   ): Promise<TransactionResponse> => {
     const projectRoyaltyInBPS = props.projectRoyalty * BASE_BPS;
 
@@ -27,40 +26,32 @@ export function useCreateRepCallback(): {
       return;
     }
 
-    if (!repFactoryContract) {
+    if (!repERC20Contract) {
       console.error("tokenContract is null");
       return;
     }
 
-    const functionName = "createRep";
+    const functionName = "changeProjectRoyalty";
 
     try {
-      const estimatedGas = await repFactoryContract[functionName].estimateGas(
-        props.projectName,
-        props.projectTicker,
-        props.address,
-        projectRoyaltyInBPS,
-        { value: REP_CREATION_FEE }
+      const estimatedGas = await repERC20Contract[functionName].estimateGas(
+        projectRoyaltyInBPS
       );
 
       const response = await contractCall(
-        repFactoryContract,
+        repERC20Contract,
         functionName,
         [
-          props.projectName,
-          props.projectTicker,
-          props.address,
           projectRoyaltyInBPS,
         ],
         {
-          value: REP_CREATION_FEE,
           gasLimit: estimatedGas,
         }
       );
 
       return response;
     } catch (error: any) {
-      console.error("Failed to create rep", error);
+      console.error("Failed to update rep royalty", error);
 
       if (error.reason) {
         throw error.reason;
@@ -75,5 +66,5 @@ export function useCreateRepCallback(): {
     }
   };
 
-  return { createRep };
+  return { updateProjectRoyalty };
 }

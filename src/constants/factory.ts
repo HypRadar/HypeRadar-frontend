@@ -2,5 +2,5 @@ import { Address } from "../types";
 
 export const FACTORY_CONTRACT: Address = {
     56: '',
-    97: '0x9dF73142827eb93aF192E3748377Bc7702De0Fce',
+    97: '0x1b83b0b65586cC380095B48182095a48B6f6422E',
 }

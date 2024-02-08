@@ -4,26 +4,32 @@ import { motion } from "framer-motion";
 
 const RoyaltyInput = ({
   royaltyInputHandler,
+  defaultValue = null,
 }: {
+  defaultValue?: number | null;
   royaltyInputHandler: (royalty: number) => void;
 }) => {
-    const [royaltyInputError, setRoyaltyInputError] = useState("");
+  const [royaltyInputError, setRoyaltyInputError] = useState("");
 
-    const onRoyaltyInputChange = (royaltyValueStr: string) => {
-        setRoyaltyInputError("");
-        const royaltyValue = Number(royaltyValueStr);
-    
-        if (isNaN(royaltyValue)) {
-            setRoyaltyInputError("Enter a valid royalty percentage for this project.");
-            return;
-        }
-    
-        if (royaltyValue < 0 || royaltyValue > 100) {
-            setRoyaltyInputError("Royalty percentage should be a value number from 0-100%.");
-            return;
-        }
-        royaltyInputHandler(royaltyValue);
-      }
+  const onRoyaltyInputChange = (royaltyValueStr: string) => {
+    setRoyaltyInputError("");
+    const royaltyValue = Number(royaltyValueStr);
+
+    if (isNaN(royaltyValue)) {
+      setRoyaltyInputError(
+        "Enter a valid royalty percentage for this project."
+      );
+      return;
+    }
+
+    if (royaltyValue < 0 || royaltyValue > 100) {
+      setRoyaltyInputError(
+        "Royalty percentage should be a value number from 0-100%."
+      );
+      return;
+    }
+    royaltyInputHandler(royaltyValue);
+  };
 
   return (
     <>
@@ -32,6 +38,7 @@ const RoyaltyInput = ({
         placeholder="10%"
         height={"54px"}
         bgColor={"#EBEDF2"}
+        defaultValue={defaultValue}
       />
       {royaltyInputError && (
         <Text

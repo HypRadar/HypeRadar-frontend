@@ -90,6 +90,20 @@ const Details = () => {
           ) : null}
 
           {project.owner === userAddress ? (
+            <>
+            <Button
+              py={3}
+              onClick={() => navigate(`/projects/edit-royalty/${project.address}`)}
+              rounded={"30px"}
+              width={"full"}
+              bgColor={"#00990F"}
+              color={"white"}
+              _hover={{ backgroundColor: "#00990F" }}
+              fontSize={["sm", "medium"]}
+              paddingY={"3"}
+            >
+              Change Project Royalty
+            </Button>
             <Button
               py={3}
               onClick={() => navigate(`/projects/edit/${project.address}`)}
@@ -102,7 +116,7 @@ const Details = () => {
               paddingY={"3"}
             >
               Edit Project Profile
-            </Button>
+            </Button></>
           ) : null}
         </div>
       </div>
