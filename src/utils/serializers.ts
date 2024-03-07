@@ -1,3 +1,4 @@
+import { ProjectRoyalty } from ".";
 import { Project } from "../types";
 
 export const rawProjectSerializer = (rawData: any): Project => {
@@ -15,7 +16,7 @@ export const rawProjectSerializer = (rawData: any): Project => {
     youtubeUrl: rawData["youtube_url"],
     bio: rawData["bio"],
     coverImage: rawData["cover_image"],
-    royalty: rawData["royalty"],
+    royalty: new ProjectRoyalty(rawData["royalty"]),
     isVerified: rawData["is_verified"],
   };
 };

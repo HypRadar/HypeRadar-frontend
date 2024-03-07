@@ -1,5 +1,5 @@
 import { keccak256, toUtf8Bytes, parseUnits } from "ethers";
-import { JWT_KEY } from "../constants";
+import { BASE_BPS, JWT_KEY } from "../constants";
 import { CHAIN_ID } from "../constants/network";
 import { ChainId, GAS_PRICE } from "../types";
 
@@ -33,4 +33,20 @@ export const GAS_PRICE_GWEI = {
 export const getGasPrice = (): string => {
   const chainId = parseInt(CHAIN_ID, 10);
   return chainId === ChainId.MAINNET ? GAS_PRICE_GWEI.default : GAS_PRICE_GWEI.testnet;
+}
+
+export class ProjectRoyalty  {
+  private _projectRoyaltyInBPS;
+
+  constructor(projectRoyalty: string) {
+    this._projectRoyaltyInBPS = projectRoyalty;
+  }
+
+  public get projectRoyalty() {
+    return this._projectRoyaltyInBPS / BASE_BPS;
+  }
+
+  public get projectRoyaltyInBPS() {
+    return this._projectRoyaltyInBPS / BASE_BPS;
+  }
 }
